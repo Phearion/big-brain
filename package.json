@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "commitlint": "commitlint --edit"
   },
   "dependencies": {
     "react": "^18.2.0",
