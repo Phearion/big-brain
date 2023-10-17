@@ -7,6 +7,6 @@
       "always",
       ["chore", "build", "ci", "docs", "feat", "fix", "perf", "refactor", "revert", "style", "test", "types", "typings"]
     ],
-    "scope-case": [0]
+    "scope-case": [2, "always", "lower-case"]
   }
 }

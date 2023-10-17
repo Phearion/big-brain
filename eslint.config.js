@@ -26,6 +26,7 @@ const typeScriptRuleset = merge(...typescript, {
     },
     rules: {
         '@typescript-eslint/consistent-type-definitions': [2, 'interface'],
+        'import/no-absolute-path': 'off',
     },
     settings: {
         'import/resolver': {
