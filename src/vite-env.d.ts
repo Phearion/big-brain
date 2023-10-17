@@ -1,0 +1,1 @@
+import { UserConfigExport } from 'vite'
