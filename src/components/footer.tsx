@@ -1,7 +1,7 @@
 export const Footer = () => {
     return (
-        <div>
-            <h2>&copy; 2023 Scrypt, Asso</h2>
+        <div className="Footer">
+            <h2>&copy; 2023 IPSA Scrypt</h2>
         </div>
     )
 }

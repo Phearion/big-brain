@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #282c34;
 }
 
 .App-logo {
@@ -13,9 +14,9 @@
   }
 }
 
-.App-header {
+.App-div {
   background-color: #282c34;
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,6 +31,10 @@
 
 .Footer {
   background-color: #282c34;
+  font-style: italic;
+  font-size: 6px;
+  color: white;
+  margin-top: 90px;
 }
 
 .App-link {
@@ -53,5 +58,5 @@
 .subBtn{
   font-size: calc(12px + 2vmin);
   border-radius: 10px;
-  margin-top: 100px;
+  margin-top: 60px;
 }
