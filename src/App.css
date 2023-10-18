@@ -1,101 +1,99 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Kanit:wght@600&family=Satisfy&display=swap');
 
 .App {
-  text-align: center;
-  background-color: #282c34;
-  height: 100%;
+	text-align: center;
+	background-color: #282c34;
+	height: 100%;
 }
 
-.BB{
-  font-family: 'Kanit', sans-serif;
-  font-size: 100px;
-  margin: none;
+.BB {
+	font-family: 'Kanit', sans-serif;
+	font-size: 100px;
+	margin: none;
 }
 
 .slogan {
-  margin-bottom: 40px;
-  font-family: 'Indie Flower', cursive;
-  font-size: 25px;
+	margin-bottom: 40px;
+	font-family: 'Indie Flower', cursive;
+	font-size: 25px;
 }
 
 .input {
-  display: flex;
-  width: 90%;
-  position: relative;
-  align-items: center;
+	display: flex;
+	width: 90%;
+	position: relative;
+	align-items: center;
 }
 
-.Request{
-  width : 100%;
-  font-size: 25px;
-  border-radius: 50px;
-  border: none;
-  padding: 15px 30px;
-  transition: 0.2s;
-  box-shadow: inset 0 0 5px black;
+.Request {
+	width: 100%;
+	font-size: 25px;
+	border-radius: 50px;
+	border: none;
+	padding: 15px 30px;
+	transition: 0.2s;
+	box-shadow: inset 0 0 5px black;
 }
 
-.subBtn{
-  position: absolute;
-  right: 0px;
-  width: 80px;
-  height: 45px;
-  font-size: 25px;
-  border-radius: 50px;
-  border: none;
-  margin: 10px;
-  background-color: #4660c8;
-  color: white;
-  transition: 0.2s all;
-  box-shadow: 0 0 5px black;
+.subBtn {
+	position: absolute;
+	right: 0px;
+	width: 80px;
+	height: 45px;
+	font-size: 25px;
+	border-radius: 50px;
+	border: none;
+	margin: 10px;
+	background-color: #4660c8;
+	color: white;
+	transition: 0.2s all;
+	box-shadow: 0 0 5px black;
 }
 
 #send {
-  align-items: center;
-  justify-content: center;
+	align-items: center;
+	justify-content: center;
 }
 
 .subBtn:hover {
-  background-color: #4c4d51;
-  cursor: pointer;
+	background-color: #4c4d51;
+	cursor: pointer;
 }
 
 .subBtn:active {
-  transition: scale(0.8);
-  box-shadow: 0 0 5px black inset;
+	transition: scale(0.8);
+	box-shadow: 0 0 5px black inset;
 }
 
 .request_number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  margin: 20px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 50%;
+	margin: 20px;
 }
 
 .App-div {
-  /*background-color: #282c34;*/
-  /*min-height: 100%;*/
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /*font-size: calc(10px + 2vmin);*/
-  color: white;
+	/*background-color: #282c34;*/
+	/*min-height: 100%;*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	/*font-size: calc(10px + 2vmin);*/
+	color: white;
 }
 
 .Header {
-  padding-top: 10px;
-  background-color: #282c34;
-  margin: none;
+	padding-top: 10px;
+	background-color: #282c34;
+	margin: none;
 }
 
 .Footer {
-  background-color: #282c34;
-  font-style: italic;
-  font-size: 6px;
-  color: white;
-  margin: 90px;
+	background-color: #282c34;
+	font-style: italic;
+	font-size: 6px;
+	color: white;
+	margin: 90px;
 }
-
-

@@ -1,0 +1,17 @@
+{
+	"extends": ["stylelint-config-standard", "stylelint-scss", "stylelint-order"],
+	"rules": {
+		"selector-class-pattern": [
+			"^[a-z]+(-[a-z]+)*$",
+			{
+				"message": "Expected class to be defined as kebab-case"
+			}
+		],
+		"selector-id-pattern": [
+			"^[a-z]+(-[a-z]+)*$",
+			{
+				"message": "Expected id to be defined as kebab-case"
+			}
+		]
+	}
+}
