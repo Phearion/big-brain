@@ -1,51 +1,46 @@
 import { useState } from 'react';
-import './App.css';
-import {Header} from "./components/header.tsx";
+import send from '../img/envoyer.png'
 import {Footer} from "./components/footer.tsx";
-//import {Footer} from "./components/footer";
-//import {Header} from "./components/header";
-//import {SubmitBtn} from "./components/submit";
+import {Header} from "./components/header.tsx";
+import './App.css';
+
 
 function App() {
-    const [inputValue, setInputValue] = useState('');
-    const [counter, setCounter] = useState(0);
-    const [message, setMessage] = useState('');
+    const [inputValue, setInputValue] = useState<string>('');
+    const [counter, setCounter] = useState<number>(0);
+    const [placeholder, setPlaceholder] = useState<string>("Pose moi ta question...");
 
-    const handleSubmit = () => {
-        if (inputValue.trim() != ''){
-            setMessage('');
-            setInputValue('');
+    const handleSubmit = (event: { preventDefault(): void; }) => {
+        if (inputValue.length === 0) {
             setCounter(counter + 1);
-        }
-        else{
-            setMessage("Demande moi de t'aider ;)")
+            setInputValue('');
+        } else {
+            setPlaceholder("Je me ferais un plaisir de t'aider !");
         }
 
+        event.preventDefault();
     };
+
     return (
         <div className="App">
             <Header/>
             <div className="App-div">
-                <h1>Big Brain</h1>
-                <p>
-                    Par les étudiants, pour les étudiants
-                </p>
-                <div>
+                <h1 className='BB'>Big Brain</h1>
+                <p className='slogan'>Par les étudiants, pour les étudiants</p>
+                <form className='input'>
                     <input
+                        id="input" 
                         type="text"
-                        placeholder="Saisissez votre requête"
+                        placeholder={placeholder}
                         value={inputValue}
-                        onChange={(e) => setInputValue(e.target.value)}
+                        onChange={(event) => setInputValue(event.target.value)}
                         className="Request"
-                    /><br/><br/>
-                    <div>
-                        {message && <p>{message}</p>}
-                        <label>Nombre de soumissions : {counter}</label>
-                    </div>
-                    <button onClick={handleSubmit} className="subBtn">Envoyer</button>
+                    />              
+                    <button onClick={handleSubmit} className="subBtn"><img id='send' src={send} width={30} height={25}/></button>
+                </form>
+                <div className='request_number'>
+                    <label>Nombre de requêtes : {counter}</label>
                 </div>
-
-
             </div>
             <Footer />
         </div>

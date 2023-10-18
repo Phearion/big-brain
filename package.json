@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "prod": "vite preview",
-    "commitlint": "commitlint -e"
+    "commitlint": "commitlint -e",
+    "test": "jest"
   },
   "dependencies": {
     "lodash.merge": "^4.6.2",
