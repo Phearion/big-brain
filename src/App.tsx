@@ -21,10 +21,10 @@ function App() {
 	};
 
 	return (
-		<div className="App">
+		<div className="app">
 			<Header />
-			<div className="App-div">
-				<h1 className="BB">Big Brain</h1>
+			<div className="app-div">
+				<h1 className="bb-title">Big Brain</h1>
 				<p className="slogan">Par les étudiants, pour les étudiants</p>
 				<form className="input">
 					<input
@@ -33,13 +33,13 @@ function App() {
 						placeholder={placeholder}
 						value={inputValue}
 						onChange={(event) => setInputValue(event.target.value)}
-						className="Request"
+						className="request"
 					/>
-					<button onClick={handleSubmit} className="subBtn">
+					<button onClick={handleSubmit} className="send-btn">
 						<img id="send" src={send} width={30} height={25} />
 					</button>
 				</form>
-				<div className="request_number">
+				<div className="request-number">
 					<label>Nombre de requêtes : {counter}</label>
 				</div>
 			</div>

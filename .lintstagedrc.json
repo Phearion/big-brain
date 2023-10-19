@@ -1,7 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/lintstagedrc.schema.json",
-	"*": "prettier --write",
+	"*": "prettier --write --ignore-unknown",
 	"{src/**,__tests__/**}.{mjs,js,cjs,ts,tsx}": "eslint --fix",
-	"src/**/*.{css,scss}": "stylelint --fix",
+	"src/**/*.{css,scss}": "stylelint --fix --allow-empty-input",
 	"src/**.ts": "vite related --run --config ../../vite.config.ts"
 }

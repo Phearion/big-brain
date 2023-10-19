@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Kanit:wght@600&family=Satisfy&display=swap');
 
-.App {
+.app {
 	text-align: center;
 	background-color: #282c34;
 	height: 100%;
 }
 
-.BB {
-	font-family: 'Kanit', sans-serif;
+.bb-title {
+	font-family: Kanit, sans-serif;
 	font-size: 100px;
 	margin: none;
 }
@@ -25,7 +25,7 @@
 	align-items: center;
 }
 
-.Request {
+.request {
 	width: 100%;
 	font-size: 25px;
 	border-radius: 50px;
@@ -35,9 +35,9 @@
 	box-shadow: inset 0 0 5px black;
 }
 
-.subBtn {
+.send-btn {
 	position: absolute;
-	right: 0px;
+	right: 0;
 	width: 80px;
 	height: 45px;
 	font-size: 25px;
@@ -55,17 +55,17 @@
 	justify-content: center;
 }
 
-.subBtn:hover {
+.send-btn:hover {
 	background-color: #4c4d51;
 	cursor: pointer;
 }
 
-.subBtn:active {
+.send-btn:active {
 	transition: scale(0.8);
 	box-shadow: 0 0 5px black inset;
 }
 
-.request_number {
+.request-number {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -73,24 +73,26 @@
 	margin: 20px;
 }
 
-.App-div {
-	/*background-color: #282c34;*/
-	/*min-height: 100%;*/
+.app-div {
+	/*
+	background-color: #282c34;
+	min-height: 100%;
+	font-size: calc(10px + 2vmin);
+	*/
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	/*font-size: calc(10px + 2vmin);*/
 	color: white;
 }
 
-.Header {
+.header {
 	padding-top: 10px;
 	background-color: #282c34;
 	margin: none;
 }
 
-.Footer {
+.footer {
 	background-color: #282c34;
 	font-style: italic;
 	font-size: 6px;

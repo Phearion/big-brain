@@ -1,3 +1,3 @@
 export function SubmitBtn() {
-	return <button className="subBtn">Envoyer</button>;
+	return <button className="send-btn">Envoyer</button>;
 }

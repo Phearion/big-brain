@@ -7,14 +7,14 @@
 		"dev": "vite",
 		"build": "tsc && vite build",
 		"prod": "vite preview",
-		"test": "jest",
 		"lint": "npm run lint:eslint && npm run lint:style",
 		"lint:staged": "lint-staged",
 		"lint:eslint": "eslint .",
 		"lint:fix": "eslint --fix .",
-		"lint:style": "stylelint \"src/**/*.{css,scss}\"",
+		"lint:style": "stylelint \"src/**/*.{css,scss}\" --fix",
 		"lint:commit": "commitlint -e",
-		"prettier": "prettier --write ."
+		"prettier": "prettier --write .",
+		"postinstall": "husky install"
 	},
 	"dependencies": {
 		"lodash.merge": "^4.6.2",
@@ -36,6 +36,7 @@
 		"eslint-plugin-react-refresh": "^0.4.3",
 		"husky": "^8.0.3",
 		"lint-staged": "^15.0.1",
+		"pre-commit": "^1.2.2",
 		"prettier": "^3.0.3",
 		"stylelint-config-standard": "^34.0.0",
 		"stylelint-order": "^6.0.3",
