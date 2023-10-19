@@ -13,11 +13,11 @@ function App() {
 		if (inputValue.length === 0) {
 			setPlaceholder("Je me ferais un plaisir de t'aider !");
 		} else {
-      setCounter(counter + 1);
+			setCounter(counter + 1);
 			setInputValue('');
-      setPlaceholder("Pose moi ta question...");
+			setPlaceholder('Pose moi ta question...');
 		}
-    
+
 		event.preventDefault();
 	};
 
@@ -37,7 +37,7 @@ function App() {
 						className="request"
 					/>
 					<button onClick={handleSubmit} className="send-btn">
-						<img id="send" src={send} width={30} height={25} />
+						<img alt="send_logo" id="send" src={send} width={30} height={25} />
 					</button>
 				</form>
 				<div className="request-number">

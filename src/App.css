@@ -14,7 +14,6 @@
 .bb-title {
 	font-family: Kanit, sans-serif;
 	font-size: 80px;
-	margin: none;
 }
 
 .slogan {
@@ -66,7 +65,6 @@
 }
 
 .send-btn:active {
-	transition: scale(0.8);
 	box-shadow: 0 0 5px black inset;
 }
 
@@ -94,11 +92,9 @@
 .header {
 	padding-top: 10px;
 	background-color: #282c34;
-	margin: none;
 }
 
 .footer {
-	/*background-color: #282c34;*/
 	font-style: italic;
 	font-size: 6px;
 	color: white;
