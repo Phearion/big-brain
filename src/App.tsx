@@ -11,12 +11,13 @@ function App() {
 
 	const handleSubmit = (event: { preventDefault(): void }) => {
 		if (inputValue.length === 0) {
-			setCounter(counter + 1);
-			setInputValue('');
-		} else {
 			setPlaceholder("Je me ferais un plaisir de t'aider !");
+		} else {
+      setCounter(counter + 1);
+			setInputValue('');
+      setPlaceholder("Pose moi ta question...");
 		}
-
+    
 		event.preventDefault();
 	};
 

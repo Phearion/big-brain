@@ -1,14 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Kanit:wght@600&family=Satisfy&display=swap');
 
+.body {
+	margin: auto 0;
+}
+
 .app {
 	text-align: center;
 	background-color: #282c34;
-	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 .bb-title {
 	font-family: Kanit, sans-serif;
-	font-size: 100px;
+	font-size: 80px;
 	margin: none;
 }
 
@@ -93,9 +98,8 @@
 }
 
 .footer {
-	background-color: #282c34;
+	/*background-color: #282c34;*/
 	font-style: italic;
 	font-size: 6px;
 	color: white;
-	margin: 90px;
 }

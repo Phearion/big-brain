@@ -1,6 +1,6 @@
 export const Footer = () => {
 	return (
-		<div className="Footer">
+		<div className="footer">
 			<h2>&copy; 2023 IPSA Scrypt</h2>
 		</div>
 	);
