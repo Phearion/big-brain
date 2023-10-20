@@ -1,57 +1,101 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Kanit:wght@600&family=Satisfy&display=swap');
+
+.body {
+	margin: auto 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app {
+	text-align: center;
+	background-color: #282c34;
+	margin: 0;
+	padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    /*animation: App-logo-spin infinite 20s linear;*/
-  }
+.bb-title {
+	font-family: Kanit, sans-serif;
+	font-size: 80px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.slogan {
+	margin-bottom: 40px;
+	font-family: 'Indie Flower', cursive;
+	font-size: 25px;
 }
 
-.Header {
-  background-color: #282c34;
+.input {
+	display: flex;
+	width: 90%;
+	position: relative;
+	align-items: center;
 }
 
-.Footer {
-  background-color: #282c34;
+.request {
+	width: 100%;
+	font-size: 25px;
+	border-radius: 50px;
+	border: none;
+	padding: 15px 30px;
+	transition: 0.2s;
+	box-shadow: inset 0 0 5px black;
 }
 
-.App-link {
-  color: #61dafb;
+.send-btn {
+	position: absolute;
+	right: 0;
+	width: 80px;
+	height: 45px;
+	font-size: 25px;
+	border-radius: 50px;
+	border: none;
+	margin: 10px;
+	background-color: #4660c8;
+	color: white;
+	transition: 0.2s all;
+	box-shadow: 0 0 5px black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#send {
+	align-items: center;
+	justify-content: center;
 }
 
-.Request{
-  font-size: calc(15px + 2vmin);
-  border-radius: 10px;
+.send-btn:hover {
+	background-color: #4c4d51;
+	cursor: pointer;
 }
 
-.subBtn{
-  font-size: calc(12px + 2vmin);
-  border-radius: 10px;
-  margin-top: 100px;
+.send-btn:active {
+	box-shadow: 0 0 5px black inset;
+}
+
+.request-number {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 50%;
+	margin: 20px;
+}
+
+.app-div {
+	/*
+	background-color: #282c34;
+	min-height: 100%;
+	font-size: calc(10px + 2vmin);
+	*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: white;
+}
+
+.header {
+	padding-top: 10px;
+	background-color: #282c34;
+}
+
+.footer {
+	font-style: italic;
+	font-size: 6px;
+	color: white;
 }

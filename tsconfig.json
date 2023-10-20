@@ -1,57 +1,61 @@
 {
-  "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
+	"compilerOptions": {
+		"target": "ES2020",
+		"useDefineForClassFields": true,
+		"lib": ["ES2020", "DOM", "DOM.Iterable"],
+		"module": "ESNext",
+		"skipLibCheck": true,
+		"jsx": "react-jsx",
 
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
+		/* Bundler mode */
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true,
 
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
+		/* Linting */
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
 
-    // Type Checking
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "exactOptionalPropertyTypes": true,
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noPropertyAccessFromIndexSignature": false,
-    "noUncheckedIndexedAccess": true,
+		// Type Checking
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
+		"exactOptionalPropertyTypes": true,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noPropertyAccessFromIndexSignature": false,
+		"noUncheckedIndexedAccess": true,
 
-    // Modules
-    "allowArbitraryExtensions": false,
-    "resolvePackageJsonExports": true,
-    "resolvePackageJsonImports": true,
+		// Modules
+		"allowArbitraryExtensions": false,
+		"resolvePackageJsonExports": true,
+		"resolvePackageJsonImports": true,
 
-    // Emit
-    "declaration": true,
-    "declarationMap": true,
-    "importHelpers": false,
-    "newLine": "lf",
-    "noEmitHelpers": true,
-    "outDir": "dist",
-    "removeComments": false,
-    "sourceMap": true,
+		// Emit
+		"declaration": true,
+		"declarationMap": true,
+		"importHelpers": false,
+		"newLine": "lf",
+		"noEmitHelpers": true,
+		"outDir": "dist",
+		"removeComments": false,
+		"sourceMap": true,
 
-    // Interop Constraints
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": false,
-    "forceConsistentCasingInFileNames": true,
+		// Interop Constraints
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": false,
+		"forceConsistentCasingInFileNames": true,
 
-    // Language and Environment
-    "experimentalDecorators": true,
-  },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+		// Language and Environment
+		"experimentalDecorators": true
+	},
+	"types": ["node"],
+	"include": ["src",
+		"./src/setupTests"
+	],
+	"exclude": ["node_modules", "dist"],
+	"references": [{ "path": "./tsconfig.node.json" }]
 }
