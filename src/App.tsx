@@ -1,14 +1,19 @@
 import { useState } from 'react';
+// import { useMediaQuery } from 'react-responsive';
 import send from '../img/envoyer.png';
 import { Footer } from './components/footer.tsx';
 import { Header } from './components/header.tsx';
 import './App.css';
 
+
+
 function App() {
+	// State variables
 	const [inputValue, setInputValue] = useState<string>('');
 	const [counter, setCounter] = useState<number>(0);
 	const [placeholder, setPlaceholder] = useState<string>('Pose moi ta question...');
 
+	// Handle submit
 	const handleSubmit = (event: { preventDefault(): void }) => {
 		if (inputValue.length === 0) {
 			setPlaceholder("Je me ferais un plaisir de t'aider !");
