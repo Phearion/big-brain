@@ -1,12 +1,25 @@
 {
-  "$schema": "https://json.schemastore.org/commitlintrc.json",
-  "extends": ["@commitlint/config-conventional"],
-  "rules": {
-    "type-enum": [
-      2,
-      "always",
-      ["chore", "build", "ci", "docs", "feat", "fix", "perf", "refactor", "revert", "style", "test", "types", "typings"]
-    ],
-    "scope-case": [2, "always", "lower-case"]
-  }
+	"extends": ["@commitlint/config-conventional"],
+	"rules": {
+		"type-enum": [
+			2,
+			"always",
+			[
+				"chore",
+				"build",
+				"ci",
+				"docs",
+				"feat",
+				"fix",
+				"perf",
+				"refactor",
+				"revert",
+				"style",
+				"test",
+				"types",
+				"typings"
+			]
+		],
+		"scope-case": [2, "always", "lower-case"]
+	}
 }

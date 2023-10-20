@@ -1,26 +1,52 @@
+import { useState } from 'react';
+import send from '../img/envoyer.png';
+import { Footer } from './components/footer.tsx';
+import { Header } from './components/header.tsx';
 import './App.css';
-import {Footer} from "./components/footer";
-import {Header} from "./components/header";
-import {SubmitBtn} from "./components/submit";
-
-
 
 function App() {
-  return (
-    <div className="App">
-        <Header/>
-        <header className="App-header">
-            <h1>Big Brain</h1>
-            <p>
-                Par les étudiants, pour les étudiants
-            </p>
-            <input type="text" placeholder="Dis moi tout chakal" className="Request"/>
-            <SubmitBtn />
+	const [inputValue, setInputValue] = useState<string>('');
+	const [counter, setCounter] = useState<number>(0);
+	const [placeholder, setPlaceholder] = useState<string>('Pose moi ta question...');
 
-        </header>
-        <Footer />
-    </div>
-  );
+	const handleSubmit = (event: { preventDefault(): void }) => {
+		if (inputValue.length === 0) {
+			setPlaceholder("Je me ferais un plaisir de t'aider !");
+		} else {
+			setCounter(counter + 1);
+			setInputValue('');
+			setPlaceholder('Pose moi ta question...');
+		}
+
+		event.preventDefault();
+	};
+
+	return (
+		<div className="app">
+			<Header />
+			<div className="app-div">
+				<h1 className="bb-title">Big Brain</h1>
+				<p className="slogan">Par les étudiants, pour les étudiants</p>
+				<form className="input">
+					<input
+						id="input"
+						type="text"
+						placeholder={placeholder}
+						value={inputValue}
+						onChange={(event) => setInputValue(event.target.value)}
+						className="request"
+					/>
+					<button onClick={handleSubmit} className="send-btn">
+						<img alt="send_logo" id="send" src={send} width={30} height={25} />
+					</button>
+				</form>
+				<div className="request-number">
+					<label>Nombre de requêtes : {counter}</label>
+				</div>
+			</div>
+			<Footer />
+		</div>
+	);
 }
 
 export default App;
