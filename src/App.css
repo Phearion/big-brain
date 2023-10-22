@@ -1,14 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Kanit:wght@600&family=Satisfy&display=swap');
 
-.body {
-	margin: auto 0;
-}
-
 .app {
 	text-align: center;
 	background-color: #282c34;
 	margin: 0;
 	padding: 0;
+	height: 100vh;
 }
 
 .bb-title {
