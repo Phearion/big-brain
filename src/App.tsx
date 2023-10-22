@@ -5,8 +5,6 @@ import { Footer } from './components/footer.tsx';
 import { Header } from './components/header.tsx';
 import './App.css';
 
-
-
 function App() {
 	// State variables
 	const [inputValue, setInputValue] = useState<string>('');

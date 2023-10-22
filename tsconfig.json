@@ -53,9 +53,7 @@
 		"experimentalDecorators": true
 	},
 	"types": ["node"],
-	"include": ["src",
-		"./src/setupTests"
-	],
+	"include": ["src", "./src/setupTests"],
 	"exclude": ["node_modules", "dist"],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }
