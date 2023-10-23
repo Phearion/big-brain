@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Kanit:wght@600&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sometype+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
 
 .app {
 	text-align: center;
@@ -8,15 +10,49 @@
 	height: 100vh;
 }
 
+.app-div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: white;
+}
+
+.title-slogan {
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+}
+
+.header {
+	padding-top: 10px;
+}
+
+.footer {
+	font-style: italic;
+	font-size: 6px;
+	color: white;
+}
+
 .bb-title {
 	font-family: Kanit, sans-serif;
-	font-size: 80px;
+	font-size: 100px;
+	margin-top: 20px;
 }
 
 .slogan {
-	margin-bottom: 40px;
-	font-family: 'Indie Flower', cursive;
+	margin-top: -87px;
+	margin-bottom: 37px;
+	font-family: Caveat, cursive;
 	font-size: 25px;
+	color: #737593;
+}
+
+.tips {
+	margin-bottom: 5px;
+	font-size: 20px;
+	font-family: 'Indie Flower', cursive;
+	color: #737593;
 }
 
 .input {
@@ -38,7 +74,7 @@
 
 .send-btn {
 	position: absolute;
-	right: 0;
+	right: 0; /* force the button to the right */
 	width: 80px;
 	height: 45px;
 	font-size: 25px;
@@ -71,28 +107,4 @@
 	justify-content: center;
 	width: 50%;
 	margin: 20px;
-}
-
-.app-div {
-	/*
-	background-color: #282c34;
-	min-height: 100%;
-	font-size: calc(10px + 2vmin);
-	*/
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	color: white;
-}
-
-.header {
-	padding-top: 10px;
-	background-color: #282c34;
-}
-
-.footer {
-	font-style: italic;
-	font-size: 6px;
-	color: white;
 }
