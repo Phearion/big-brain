@@ -1,4 +1,4 @@
-import sanitizeHtml from 'sanitize-html';
+import * as sanitizeHtml from 'sanitize-html';
 
 export const sanitizeInput = (input: string): string => {
 	let sanitizedString = '';
