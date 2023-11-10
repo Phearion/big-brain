@@ -14,10 +14,12 @@ export function Submit({
 
 	// effects
 	const handleSubmit = (event: { preventDefault(): void }) => {
+		setInputValue(inputValue);
 		if (inputValue.length === 0) {
 			setPlaceholder("Je me ferais un plaisir de t'aider !");
 		} else {
 			setCounter(counter + 1);
+
 			setInputValue('');
 			setPlaceholder('Pose moi ta question...');
 		}
