@@ -1,4 +1,3 @@
-
 import createDOMPurify from 'dompurify';
 import { JSDOM } from 'jsdom';
 import * as MarkdownIt from 'markdown-it';
