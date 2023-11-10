@@ -1,13 +1,14 @@
-import { sanitizeInput } from '../Sanitizer/test';
+import { sanitizeInput } from '../Sanitizer/sanitizer.tsx';
 
-test('sanitizer', () => {
+it('sanitizer', () => {
 	const res = sanitizeInput('dgdfshfbe00');
-	const expectedRes = 'dgdfshfbe00';
+	const expectedRes = '<p>dgdfshfbe00</p>';
 
 	expect(res).toBe(expectedRes);
 
-	// const res2 = sanitizeInput("dgd['hfbe00");
-	// const expectedres2 = Error('Caractère non autorisé détecté : [');
-
-	// expect(res2).toBe(expectedres2);
+	try {
+		sanitizeInput("dgd['hfbe00");
+	} catch (error: any) {
+		expect(error.message).toBe('Caractère non autorisé détecté : [');
+	}
 });

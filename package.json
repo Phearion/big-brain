@@ -3,7 +3,6 @@
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
-	"testEnvironment": "jsdom",
 	"scripts": {
 		"dev": "vite",
 		"test": "jest",
@@ -20,6 +19,7 @@
 	},
 	"dependencies": {
 		"dompurify": "^3.0.6",
+		"jsdom": "^22.1.0",
 		"lodash.merge": "^4.6.2",
 		"markdown-it": "^13.0.2",
 		"react": "^18.2.0",
@@ -34,7 +34,7 @@
 		"@testing-library/jest-dom": "^6.1.4",
 		"@testing-library/react": "^14.0.0",
 		"@types/dompurify": "^3.0.5",
-		"@types/jest": "^29.5.6",
+		"@types/jest": "^29.5.8",
 		"@types/jsdom-global": "^3.0.6",
 		"@types/markdown-it": "^13.0.6",
 		"@types/react": "^18.2.15",
