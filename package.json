@@ -25,6 +25,7 @@
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-simple-typewriter": "^5.0.1",
+		"sass": "^1.69.5",
 		"sanitize-html": "^2.11.0"
 	},
 	"devDependencies": {
@@ -46,6 +47,7 @@
 		"@typescript-eslint/parser": "^6.0.0",
 		"@unocss/eslint-plugin": "^0.56.5",
 		"@vitejs/plugin-react": "^4.0.3",
+		"antd": "^5.10.2",
 		"eslint": "^8.51.0",
 		"eslint-config-neon": "^0.1.57",
 		"eslint-plugin-react-hooks": "^4.6.0",
@@ -56,6 +58,7 @@
 		"lint-staged": "^15.0.1",
 		"pre-commit": "^1.2.2",
 		"prettier": "^3.0.3",
+		"react-responsive": "^9.0.2",
 		"stylelint-config-standard": "^34.0.0",
 		"stylelint-order": "^6.0.3",
 		"stylelint-scss": "^5.2.1",
