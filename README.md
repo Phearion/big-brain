@@ -1,27 +1,35 @@
-# React + TypeScript + Vite
+<div align="center">
+    <img src='bigbrain.png' alt='Big Brain Logo'>
+    <img src='https://img.shields.io/github/issues/ipsa-scrypt/big-brain?style=for-the-badge&logo=github'>
+    <img src='https://img.shields.io/github/contributors/ipsa-scrypt/big-brain?style=for-the-badge&logo=github'>
+    <img src='https://img.shields.io/github/license/ipsa-scrypt/big-brain?style=for-the-badge&logo=github'>
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Big Brain Website
 
-Currently, two official plugins are available:
+Welcome to the Big Brain website repository! This is where we store all of our website code.
+The goal of this website is to provide a place for students to gather resources using a simple and easy to use interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Scope
 
-## Expanding the ESLint configuration
+For now, only IPSA (French engineering school) students can access the website. However, we plan on making it available to more schools in the future.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# Built with
 
-- Configure the top-level `parserOptions` property like this:
+The website is built using the following technologies:
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+- [TypeScript](https://www.typescriptlang.org/)
+- [Node.js](https://nodejs.org/en/)
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+# Linter from
+
+- [ESLint](https://eslint.org/)
+- [discord.js](https://github.com/discordjs/discord.js)
+
+# Acknowledgements
+
+- [Phearion](https://github.com/Phearion) for the idea and the base code for everything related to Big Brain Project.
+- Professor [Aybuke Ozturk](https://www.aybukeozturk.com)
+- [IPSA](https://www.ipsa.fr/) 👀
