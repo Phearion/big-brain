@@ -1,24 +1,14 @@
-import { useState } from 'react';
+import { Body } from './components/body.tsx';
 import { Footer } from './components/footer';
-import { Header } from './components/header';
-import { Request } from './components/request.tsx';
-import { Section } from './components/section.tsx';
-import { Submit } from './components/submit';
+import { Header } from './components/header.tsx';
 import './App.css';
 
 function App() {
-	// states
-	const [counter, setCounter] = useState<number>(0);
-
 	// render
 	return (
 		<div className="app">
 			<Header />
-			<div className="app-div">
-				<Section />
-				<Submit counter={counter} setCounter={setCounter} />
-				<Request counter={counter} />
-			</div>
+			<Body />
 			<Footer />
 		</div>
 	);

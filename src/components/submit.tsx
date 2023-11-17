@@ -1,15 +1,18 @@
 import { useState } from 'react';
-import send from '../../img/envoyer.png';
 
 export function Submit({
-	counter,
-	setCounter,
+	setShowOutputs,
+	inputValue,
+	setInputValue,
+	setSubmittedRequest,
 }: {
-	counter: number;
-	setCounter(counter: number): void;
+	inputValue: string;
+	setInputValue(inputValue: string): void;
+	setShowOutputs(showOutputs: boolean): void;
+	setSubmittedRequest(submittedRequest: string): void;
 }) {
 	// states
-	const [inputValue, setInputValue] = useState<string>('');
+
 	const [placeholder, setPlaceholder] = useState<string>('Pose moi ta question...');
 
 	// effects
@@ -17,11 +20,12 @@ export function Submit({
 		setInputValue(inputValue);
 		if (inputValue.length === 0) {
 			setPlaceholder("Je me ferais un plaisir de t'aider !");
+			setShowOutputs(false);
 		} else {
-			setCounter(counter + 1);
-
+			setSubmittedRequest(inputValue);
 			setInputValue('');
 			setPlaceholder('Pose moi ta question...');
+			setShowOutputs(true);
 		}
 
 		event.preventDefault();
@@ -29,19 +33,26 @@ export function Submit({
 
 	// render
 	return (
-		<form className="input">
-			<input
-				id="input"
-				type="text"
-				placeholder={placeholder}
-				value={inputValue}
-				onChange={(event) => setInputValue(event.target.value)}
-				className="request"
-			/>
-
-			<button onClick={handleSubmit} className="send-btn">
-				<img alt="send_logo" id="send" src={send} width={30} height={25} />
-			</button>
-		</form>
+		<div className="input-container">
+			<form>
+				<div className="form-container">
+					<input
+						id="input"
+						type="text"
+						placeholder={placeholder}
+						value={inputValue}
+						onChange={(event) => setInputValue(event.target.value)}
+						className="input-text"
+					/>
+					<button onClick={handleSubmit} className="send-btn" type="submit">
+						<img
+							src={'././img/send.png'}
+							alt="send-button-with-plane-design"
+							className="button-img"
+						></img>
+					</button>
+				</div>
+			</form>
+		</div>
 	);
 }
