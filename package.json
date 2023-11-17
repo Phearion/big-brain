@@ -8,6 +8,8 @@
 		"test": "jest",
 		"build": "tsc && vite build",
 		"prod": "vite preview",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d dist",
 		"lint": "npm run lint:eslint && npm run lint:style",
 		"lint:staged": "lint-staged",
 		"lint:eslint": "eslint .",
