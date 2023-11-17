@@ -1,5 +1,21 @@
 import { useState } from 'react';
 
+const sendToSushiAPI = async (inputValue: string) => {
+	try {
+		const response = await fetch('http://localhost:3000/request', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ data: inputValue }),
+		});
+		const data = await response.text();
+		console.log(data);
+	} catch (error) {
+		console.error('Error:', error);
+	}
+};
+
 export function Submit({
 	setShowOutputs,
 	inputValue,
@@ -16,19 +32,20 @@ export function Submit({
 	const [placeholder, setPlaceholder] = useState<string>('Pose moi ta question...');
 
 	// effects
-	const handleSubmit = (event: { preventDefault(): void }) => {
+	const handleSubmit = async (event: { preventDefault(): void }) => {
+		event.preventDefault();
+
 		setInputValue(inputValue);
 		if (inputValue.length === 0) {
 			setPlaceholder("Je me ferais un plaisir de t'aider !");
 			setShowOutputs(false);
 		} else {
+			await sendToSushiAPI(inputValue);
 			setSubmittedRequest(inputValue);
 			setInputValue('');
 			setPlaceholder('Pose moi ta question...');
 			setShowOutputs(true);
 		}
-
-		event.preventDefault();
 	};
 
 	// render
