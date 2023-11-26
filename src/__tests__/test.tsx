@@ -1,4 +1,4 @@
-import { sanitizeInput } from '../Sanitizer/Sanitizer';
+import { sanitizeInput } from '../sanitizer/sanitizer.ts';
 
 test('sanitizer', () => {
 	const res = sanitizeInput('dgdfshfbe00');

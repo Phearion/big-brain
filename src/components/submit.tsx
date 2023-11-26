@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { sendToSushiAPI } from '../sushi/sushi.tsx';
 
 export function Submit({
 	setShowOutputs,
@@ -16,19 +17,27 @@ export function Submit({
 	const [placeholder, setPlaceholder] = useState<string>('Pose moi ta question...');
 
 	// effects
-	const handleSubmit = (event: { preventDefault(): void }) => {
+	const handleSubmit = async (event: { preventDefault(): void }) => {
+		event.preventDefault();
+
 		setInputValue(inputValue);
 		if (inputValue.length === 0) {
 			setPlaceholder("Je me ferais un plaisir de t'aider !");
 			setShowOutputs(false);
 		} else {
+			const res = await sendToSushiAPI(inputValue);
+			if (res) {
+				const bbAnswer = document.querySelector('.bb-answer') as HTMLParagraphElement;
+				if (bbAnswer) {
+					bbAnswer.innerText = `Voici ce que j'ai trouvé en lien avec ce que tu as demandé : ${res}`;
+				}
+			}
+
 			setSubmittedRequest(inputValue);
 			setInputValue('');
 			setPlaceholder('Pose moi ta question...');
 			setShowOutputs(true);
 		}
-
-		event.preventDefault();
 	};
 
 	// render
