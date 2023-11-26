@@ -1,9 +1,9 @@
-import process from 'node:process';
-
 export const sendToSushiAPI = async (inputValue: string) => {
 	try {
 		const response = await fetch(
-			`http://${process.env.REACT_APP_PROD_SERVER_IP}:${process.env.REACT_APP_API_PORT}/request`,
+			`http://${import.meta.env.VITE_APP_PROD_SERVER_IP}:${
+				import.meta.env.VITE_APP_API_PORT
+			}/request`,
 			{
 				method: 'POST',
 				headers: {
