@@ -1,13 +1,14 @@
 import { Cursor, useTypewriter } from 'react-simple-typewriter';
 
 const WORDS = [
-	"j'ai tapé mes meilleurs 4/20 dans cette école !",
-	"ça peut pas être pire que le S1 d'AERO3...",
-	'tiens le coup, ça va le faire !',
-	'tu vas y arriver !',
-	'tu es sur la bonne voie',
+	"J'ai tapé mes meilleurs 4/20 dans cette école !",
+	"Ca peut pas être pire que le S1 d'AERO3...",
+	'Tiens le coup, ça va le faire !',
+	'Tu vas y arriver !',
+	'Tu es sur la bonne voie',
 	'on est tous passé par là ;)',
-	'encore quelques années et tu seras ingénieur !',
+	'Encore quelques années et tu seras ingénieur !',
+	"On aura pas 0 ! On aura 10/20 parce qu'on a révisé.",
 ];
 
 export const Tips = () => {

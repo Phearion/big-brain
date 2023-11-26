@@ -1,4 +1,4 @@
-export function Header() {
+export const Header = () => {
 	// render
 	return (
 		<div className="header">
@@ -11,4 +11,4 @@ export function Header() {
 			></img>
 		</div>
 	);
-}
+};
