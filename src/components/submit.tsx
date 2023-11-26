@@ -1,20 +1,5 @@
 import { useState } from 'react';
-
-const sendToSushiAPI = async (inputValue: string) => {
-	try {
-		const response = await fetch('http://localhost:3000/request', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ data: inputValue }),
-		});
-		const data = await response.text();
-		console.log(data);
-	} catch (error) {
-		console.error('Error:', error);
-	}
-};
+import { sendToSushiAPI } from '../sushi/sushi.tsx';
 
 export function Submit({
 	setShowOutputs,
@@ -40,7 +25,14 @@ export function Submit({
 			setPlaceholder("Je me ferais un plaisir de t'aider !");
 			setShowOutputs(false);
 		} else {
-			await sendToSushiAPI(inputValue);
+			const res = await sendToSushiAPI(inputValue);
+			if (res) {
+				const bbAnswer = document.querySelector('.bb-answer') as HTMLParagraphElement;
+				if (bbAnswer) {
+					bbAnswer.innerText = `Voici ce que j'ai trouvé en lien avec ce que tu as demandé : ${res}`;
+				}
+			}
+
 			setSubmittedRequest(inputValue);
 			setInputValue('');
 			setPlaceholder('Pose moi ta question...');
