@@ -502,18 +502,23 @@
 	}
 
 	.output {
+		z-index: 999;
 		position: fixed;
-		display: flex;
+		display: none;
 		flex-direction: column;
 		background-color: rgb(255 255 255 / 6%);
 		border: 4px solid rgb(252 252 252 / 10%);
 		border-radius: 30px;
-		opacity: 1;
 		color: white;
 		padding: 1% 2%;
 		height: 49%;
 		width: 80vw;
-		top: 22%;
+		top: 23%;
+		overflow-y: auto;
+	}
+
+	.output-appear {
+		display: flex;
 	}
 
 	.bb-answer-container,
@@ -540,6 +545,115 @@
 		margin-left: 20px;
 		font-size: 1.2vw;
 		word-wrap: break-word;
+	}
+
+	.pdf-icon-img {
+		width: 2.5vw;
+	}
+
+	.icon-link {
+		display: flex;
+		flex-direction: column;
+		margin-left: 50px;
+		width: fit-content;
+	}
+
+	.icon-link-content {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		padding-top: 5px;
+	}
+
+	.dl-btn {
+		background: none !important;
+		border: none;
+		color: #fff;
+		cursor: pointer;
+	}
+
+	* {
+		scrollbar-width: none;
+		scrollbar-color: #403540 #000;
+	}
+
+	*::-webkit-scrollbar {
+		width: 1.5vh;
+	}
+
+	*::-webkit-scrollbar-track {
+		margin-top: 4vh;
+		margin-bottom: 4vh;
+		border-radius: 10px;
+		background: #000;
+	}
+
+	*::-webkit-scrollbar-thumb {
+		background-color: #403540;
+		border-radius: 10px;
+	}
+
+	.history-btn {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 3.1vw;
+		width: fit-content;
+		border-radius: 50px;
+		border: none;
+		color: white;
+		box-shadow: 0 0 5px white;
+		cursor: pointer;
+		bottom: 13%;
+		left: 92%;
+		background-color: #060c1a;
+		font-weight: bold;
+	}
+
+	.history-div {
+		display: none;
+		position: fixed;
+		z-index: 999;
+		flex-direction: column;
+		border: 4px solid rgb(252 252 252 / 10%);
+		border-radius: 30px;
+		color: white;
+		background-color: #060c1a;
+		padding: 1% 2%;
+		height: 80%;
+		width: 21%;
+		bottom: 13%;
+		left: 65.5%;
+		overflow-y: auto;
+	}
+
+	.history-div-appear {
+		display: flex;
+	}
+
+	.history-div-disappear {
+		display: none;
+	}
+
+	.saved-request {
+		display: flex;
+		flex-direction: column;
+		word-wrap: break-word;
+		font-size: small;
+	}
+
+	.history-request {
+		display: flex;
+		height: fit-content;
+		margin-bottom: 0.75vw;
+	}
+
+	.separator {
+		display: flex;
+		margin-top: 1vw;
+		margin-bottom: 1vw;
+		border-bottom: 1px solid #4c4d51;
 	}
 
 	/* Footer div */
