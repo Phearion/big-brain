@@ -49,9 +49,12 @@ export const History = ({ submittedRequest }: { submittedRequest: string }) => {
 	}, [submittedRequest]); // Dependency array includes submittedRequest so the effect runs whenever submittedRequest changes
 
 	const history_appear = () => {
-		if (document.querySelector('.history-request') === null) {
+		const history_request = document.querySelector('.saved-request');
+
+		if (history_request?.textContent === '') {
 			// eslint-disable-next-line no-alert
-			alert('No history yet !');
+			alert("L'historique est vide !");
+			return;
 		}
 
 		if (history_div?.classList.contains('history-div-appear')) {
