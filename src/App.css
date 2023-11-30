@@ -77,7 +77,6 @@
 	transition: 0.2s;
 	box-shadow: inset 0 0 5px black;
 	padding-left: 10px;
-	font-size: 2.25vh !important;
 }
 
 .send-btn {
@@ -265,7 +264,7 @@
 	}
 
 	.input-text {
-		font-size: 100%;
+		font-size: 4vw !important;
 	}
 
 	.send-btn {
@@ -336,7 +335,7 @@
 /* Mobile - Galaxy fold (portrait) */
 @media screen and (width <= 280px) {
 	.input-text {
-		font-size: 70%;
+		font-size: 4vw !important;
 	}
 
 	.icon-link {
@@ -379,10 +378,6 @@
 
 	.form-container input {
 		height: 4vw;
-	}
-
-	.input-text {
-		font-size: 100%;
 	}
 
 	.send-btn {
@@ -458,6 +453,10 @@
 		width: 20%;
 	}
 
+	.input-text {
+		font-size: 2vw !important;
+	}
+
 	.output {
 		background-color: transparent;
 		border: none;
@@ -488,6 +487,10 @@
 
 	.input-container {
 		bottom: 15%;
+	}
+
+	.input-text {
+		font-size: 1.75vw !important;
 	}
 
 	.form-container {
@@ -591,6 +594,10 @@
 		bottom: 15%;
 	}
 
+	.input-text {
+		font-size: 2.25vw !important;
+	}
+
 	.form-container {
 		width: 80vw;
 	}
@@ -688,6 +695,10 @@
 
 	.input-container {
 		bottom: 14%;
+	}
+
+	.input-text {
+		font-size: 1.5vw !important;
 	}
 
 	.form-container {
