@@ -70,7 +70,7 @@ export const History = ({ submittedRequest }: { submittedRequest: string }) => {
 	return (
 		<div className="history-container">
 			<button onClick={history_appear} className="history-btn">
-				History
+				<img src={'././img/clock.png'} alt="clock" className="clock-img"></img>
 			</button>
 			<div className="history-div">
 				<div className="saved-request"></div>

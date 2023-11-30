@@ -21,6 +21,7 @@
 	},
 	"dependencies": {
 		"dompurify": "^3.0.6",
+		"gh-pages": "^6.1.0",
 		"jquery": "^3.7.1",
 		"jsdom": "^23.0.0",
 		"lodash.merge": "^4.6.2",
