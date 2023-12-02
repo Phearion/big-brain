@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { sendToSushiAPI } from '../sushi/sushi.tsx';
+import { saveRequestToDB } from '../sushi/saveRequest.tsx';
+// import { sendToSushiAPI } from '../sushi/sushi.tsx';
 
 export function Submit({
 	setShowOutputs,
@@ -25,12 +26,18 @@ export function Submit({
 			setPlaceholder("Je me ferais un plaisir de t'aider !");
 			setShowOutputs(false);
 		} else {
-			const res = await sendToSushiAPI(inputValue);
+			/* const res = await sendToSushiAPI(inputValue);
 			if (res) {
 				const bbAnswer = document.querySelector('.bb-answer') as HTMLParagraphElement;
 				if (bbAnswer) {
 					bbAnswer.innerText = `Voici ce que j'ai trouvé en lien avec ce que tu as demandé : ${res}`;
 				}
+			}*/
+
+			try {
+				await saveRequestToDB(inputValue, '111');
+			} catch (error) {
+				console.log(error);
 			}
 
 			setSubmittedRequest(inputValue);
