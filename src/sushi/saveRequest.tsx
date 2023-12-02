@@ -1,7 +1,7 @@
-export const saveRequestToDB = async (request: string, userID: string) => {
-	console.log('saveRequestToDB', request, userID);
+export const saveRequestToDB = async (request: string, userId: string) => {
+	console.log('saveRequestToDB', request, userId);
 	try {
-		const dataToSave = { request, userID };
+		const dataToSave = { request, userId };
 		const response = await fetch(
 			`http://${import.meta.env.VITE_APP_PROD_SERVER_IP}:${
 				import.meta.env.VITE_APP_API_PORT
