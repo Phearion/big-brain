@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { saveRequestToDB } from '../sushi/saveRequest.tsx';
-// import { sendToSushiAPI } from '../sushi/sushi.tsx';
+import { sendToSushiAPI } from '../sushi/sushi.tsx';
 
 export function Submit({
 	setShowOutputs,
@@ -11,7 +11,10 @@ export function Submit({
 	inputValue: string;
 	setInputValue(inputValue: string): void;
 	setShowOutputs(showOutputs: boolean): void;
-	setSubmittedRequest(submittedRequest: string): void;
+	setSubmittedRequest(submittedRequest: {
+		pdfData: Record<string, string>[];
+		request: string;
+	}): void;
 }) {
 	// states
 
@@ -26,13 +29,20 @@ export function Submit({
 			setPlaceholder("Je me ferais un plaisir de t'aider !");
 			setShowOutputs(false);
 		} else {
-			/* const res = await sendToSushiAPI(inputValue);
-			if (res) {
+			const res = await sendToSushiAPI(inputValue);
+			let pdfData: Record<string, string>[] = [];
+			// if res is object containing a files key
+			if (res.files) {
 				const bbAnswer = document.querySelector('.bb-answer') as HTMLParagraphElement;
 				if (bbAnswer) {
 					bbAnswer.innerText = `Voici ce que j'ai trouvé en lien avec ce que tu as demandé : ${res}`;
 				}
-			}*/
+
+				console.log('handleSubmit', res);
+				pdfData = res.files; // assuming res.data contains the array of base64 PDFs
+			} else {
+				console.log(res);
+			}
 
 			try {
 				await saveRequestToDB(inputValue);
@@ -40,7 +50,8 @@ export function Submit({
 				console.log(error);
 			}
 
-			setSubmittedRequest(inputValue);
+			console.log('handleSubmit', pdfData);
+			setSubmittedRequest({ request: inputValue, pdfData });
 			setInputValue('');
 			setPlaceholder('Pose moi ta question...');
 			setShowOutputs(true);

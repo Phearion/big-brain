@@ -1,47 +1,69 @@
 import { useEffect } from 'react';
-import webPathsList from '../ts/resourcesList.ts';
 
-const windowOpen = (path: string) => {
-	window.open(path, '_blank');
+const createPDFLink = (pdf: Record<string, string>) => {
+	const img = document.createElement('img');
+	const div = document.createElement('div');
+	const link = document.createElement('button');
+
+	console.log('pdf', pdf.name);
+
+	img.src = '././img/pdf-extension.png';
+	img.alt = 'pdf-logo';
+	img.className = 'pdf-icon-img';
+
+	div.className = 'icon-link-content';
+
+	link.className = 'dl-btn';
+	link.textContent = pdf.name as string;
+	link.onclick = () => {
+		// Decode base64 data, create Uint8Array, and then create blob
+		const binaryString = atob(pdf.data as string);
+		const len = binaryString.length;
+		const bytes = new Uint8Array(len);
+		for (let ind = 0; ind < len; ind++) {
+			bytes[ind] = binaryString.codePointAt(ind) as number;
+		}
+
+		const blob = new Blob([bytes.buffer], { type: 'application/pdf' });
+
+		const link = document.createElement('a');
+		link.href = window.URL.createObjectURL(blob);
+		link.download = pdf.name as string;
+		link.click();
+	};
+
+	div.appendChild(img);
+	div.appendChild(link);
+	return div;
 };
 
-const addDlLink = (paths: any) => {
-	const icon_link = document.querySelector('.icon-link');
-	if (icon_link) {
-		icon_link.textContent = '';
+const displayPDFs = (pdfData: Record<string, string>[]) => {
+	console.log('displayPDFs', pdfData);
+	const container = document.querySelector('.bb-answer-container');
+	if (container) {
+		container.textContent = '';
+
+		for (const pdf of pdfData) {
+			if (!pdf.data) {
+				continue;
+			}
+
+			const div = createPDFLink(pdf);
+			container.appendChild(div);
+		}
 	}
-
-	for (const path of paths) {
-		const img = document.createElement('img');
-		const div = document.createElement('div');
-		const link = document.createElement('button');
-
-		img.src = '././img/pdf-extension.png';
-		img.alt = 'pdf-icon';
-		img.className = 'pdf-icon-img';
-
-		div.className = 'icon-link-content';
-
-		link.className = 'dl-btn';
-		link.textContent = path.split('/').pop() as string;
-		link.onclick = () => windowOpen(path);
-
-		div?.appendChild(img);
-		div?.appendChild(link);
-		icon_link?.appendChild(div);
-	}
 };
 
-const output_apparition = (paths: any) => {
-	const output = document.querySelector('.output');
-	output?.classList.add('output-appear');
-	addDlLink(paths);
-};
-
-export const Outputs = ({ submittedRequest }: { submittedRequest: string }) => {
+export const Outputs = ({
+	submittedRequest,
+	pdfData,
+}: {
+	pdfData: Record<string, string>[];
+	submittedRequest: string;
+}) => {
 	useEffect(() => {
-		output_apparition(webPathsList);
-	}, []); // Empty dependency array means this effect runs once on mount
+		displayPDFs(pdfData);
+	}, [pdfData]); // Dependency array includes pdfData so effect runs whenever pdfData changes
 
 	// render
 	return (
@@ -54,9 +76,7 @@ export const Outputs = ({ submittedRequest }: { submittedRequest: string }) => {
 				<img src={'././img/brain.png'} alt="brain-logo" className="ai-logo"></img>
 				<p className="bb-answer">Voici ce que j'ai trouvé en lien avec ce que tu as demandé :</p>
 			</div>
-			<div className="bb-sent-files-container">
-				<div className="icon-link"></div>
-			</div>
+			<div className="bb-sent-files-container"></div>
 		</div>
 	);
 };
