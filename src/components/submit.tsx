@@ -35,7 +35,7 @@ export function Submit({
 			}*/
 
 			try {
-				await saveRequestToDB(inputValue, '111');
+				await saveRequestToDB(inputValue);
 			} catch (error) {
 				console.log(error);
 			}
