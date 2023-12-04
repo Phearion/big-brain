@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { History } from './history.tsx';
-import { Outputs } from './output.tsx';
-import { Submit } from './submit';
-import { Tips } from './tips.tsx';
+import { History } from './History.tsx';
+import { Outputs } from './Output.tsx';
+import { Submit } from './Submit.tsx';
+import { Tips } from './Tips.tsx';
 
 export const Body = () => {
 	// states

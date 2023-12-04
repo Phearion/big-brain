@@ -17,11 +17,11 @@ export function Submit({
 	}): void;
 }) {
 	// states
-
 	const [placeholder, setPlaceholder] = useState<string>('Pose moi ta question...');
+	const [apiError, setApiError] = useState<string>(''); // new state variable for API errors
 
 	// effects
-	const handleSubmit = async (event: { preventDefault(): void }) => {
+	const handleSubmit = async (event: { preventDefault(): void }): Promise<void> => {
 		event.preventDefault();
 
 		setInputValue(inputValue);
@@ -29,32 +29,34 @@ export function Submit({
 			setPlaceholder("Je me ferais un plaisir de t'aider !");
 			setShowOutputs(false);
 		} else {
-			const res = await sendToSushiAPI(inputValue);
 			let pdfData: Record<string, string>[] = [];
-			// if res is object containing a files key
-			if (res.files) {
-				const bbAnswer = document.querySelector('.bb-answer') as HTMLParagraphElement;
-				if (bbAnswer) {
-					bbAnswer.innerText = `Voici ce que j'ai trouvé en lien avec ce que tu as demandé : ${res}`;
+			try {
+				const res = await sendToSushiAPI(inputValue);
+				// if res is object containing a files key
+				if (res.files) {
+					pdfData = res.files;
+				} else {
+					setApiError('Woaaa, je lag de fou là. Peut être en maintenance.'); // set the error message
+					return;
 				}
-
-				console.log('handleSubmit', res);
-				pdfData = res.files; // assuming res.data contains the array of base64 PDFs
-			} else {
-				console.log(res);
+			} catch {
+				setApiError("Une erreur s'est produite, veuillez réessayer plus tard."); // set the error message
+				return;
 			}
 
 			try {
 				await saveRequestToDB(inputValue);
-			} catch (error) {
-				console.log(error);
+			} catch {
+				setApiError("Une erreur s'est produite, veuillez réessayer plus tard."); // set the error message
+				return;
 			}
 
-			console.log('handleSubmit', pdfData);
-			setSubmittedRequest({ request: inputValue, pdfData });
-			setInputValue('');
-			setPlaceholder('Pose moi ta question...');
-			setShowOutputs(true);
+			if (!apiError) {
+				setSubmittedRequest({ request: inputValue, pdfData });
+				setInputValue('');
+				setPlaceholder('Pose moi ta question...');
+				setShowOutputs(true);
+			}
 		}
 	};
 

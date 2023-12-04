@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { Footer } from '../components/footer.tsx';
+import { Footer } from '../components/Footer.tsx';
 import '@testing-library/jest-dom';
 import 'jsdom-global/register';
 
