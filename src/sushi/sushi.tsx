@@ -1,5 +1,6 @@
 export const sendToSushiAPI = async (inputValue: string) => {
 	try {
+		console.log('sendToSushiAPI');
 		const response = await fetch(
 			`http://${import.meta.env.VITE_APP_PROD_SERVER_IP}:${
 				import.meta.env.VITE_APP_API_PORT
@@ -12,9 +13,7 @@ export const sendToSushiAPI = async (inputValue: string) => {
 				body: JSON.stringify({ data: inputValue }),
 			},
 		);
-		const data: string = await response.text();
-		console.log(data);
-		return data;
+		return await response.json();
 	} catch (error) {
 		console.error('Error:', error);
 		return "Une erreur s'est produite, veuillez réessayer plus tard.";
