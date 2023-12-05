@@ -8,11 +8,13 @@
 	align-items: center;
 	background-color: #060c1a;
 	height: 100vh;
+	overflow-y: hidden;
 }
 
 /* Common styles */
 .header {
 	display: flex;
+	position: fixed;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -168,7 +170,7 @@
 }
 
 .history-btn {
-	position: absolute;
+	position: fixed;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -224,6 +226,7 @@
 
 .footer {
 	display: flex;
+	position: fixed;
 	height: 5%;
 	width: 100%;
 	justify-content: center;

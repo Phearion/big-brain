@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { saveRequestToDB } from '../sushi/saveRequest.tsx';
 import { sendToSushiAPI } from '../sushi/sushi.tsx';
 
 export function Submit({
@@ -10,14 +11,17 @@ export function Submit({
 	inputValue: string;
 	setInputValue(inputValue: string): void;
 	setShowOutputs(showOutputs: boolean): void;
-	setSubmittedRequest(submittedRequest: string): void;
+	setSubmittedRequest(submittedRequest: {
+		pdfData: Record<string, string>[];
+		request: string;
+	}): void;
 }) {
 	// states
-
 	const [placeholder, setPlaceholder] = useState<string>('Pose moi ta question...');
+	const [apiError, setApiError] = useState<string>(''); // new state variable for API errors
 
 	// effects
-	const handleSubmit = async (event: { preventDefault(): void }) => {
+	const handleSubmit = async (event: { preventDefault(): void }): Promise<void> => {
 		event.preventDefault();
 
 		setInputValue(inputValue);
@@ -25,18 +29,34 @@ export function Submit({
 			setPlaceholder("Je me ferais un plaisir de t'aider !");
 			setShowOutputs(false);
 		} else {
-			const res = await sendToSushiAPI(inputValue);
-			if (res) {
-				const bbAnswer = document.querySelector('.bb-answer') as HTMLParagraphElement;
-				if (bbAnswer) {
-					bbAnswer.innerText = `Voici ce que j'ai trouvé en lien avec ce que tu as demandé : ${res}`;
+			let pdfData: Record<string, string>[] = [];
+			try {
+				const res = await sendToSushiAPI(inputValue);
+				// if res is object containing a files key
+				if (res.files) {
+					pdfData = res.files;
+				} else {
+					setApiError('Woaaa, je lag de fou là. Peut être en maintenance.'); // set the error message
+					return;
 				}
+			} catch {
+				setApiError("Une erreur s'est produite, veuillez réessayer plus tard."); // set the error message
+				return;
 			}
 
-			setSubmittedRequest(inputValue);
-			setInputValue('');
-			setPlaceholder('Pose moi ta question...');
-			setShowOutputs(true);
+			try {
+				await saveRequestToDB(inputValue);
+			} catch {
+				setApiError("Une erreur s'est produite, veuillez réessayer plus tard."); // set the error message
+				return;
+			}
+
+			if (!apiError) {
+				setSubmittedRequest({ request: inputValue, pdfData });
+				setInputValue('');
+				setPlaceholder('Pose moi ta question...');
+				setShowOutputs(true);
+			}
 		}
 	};
 
