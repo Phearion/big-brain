@@ -27,5 +27,10 @@ jobs:
           VITE_APP_PROD_SERVER_IP: ${{ secrets.REACT_APP_PROD_SERVER_IP }}
           VITE_APP_API_PORT: ${{ secrets.REACT_APP_API_PORT }}
 
+      - name: User git config
+        run: |
+          git config --global user.name "PhantHive"
+          git config --global user.email "phantomhive72@yahoo.fr"
+
       - name: Deploy
         run: npm run deploy
