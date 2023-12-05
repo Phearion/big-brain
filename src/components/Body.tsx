@@ -1,17 +1,19 @@
 import { useState } from 'react';
-import { History } from './history.tsx';
-import { Outputs } from './output.tsx';
-import { Submit } from './submit';
-import { Tips } from './tips.tsx';
+import { History } from './History.tsx';
+import { Outputs } from './Output.tsx';
+import { Submit } from './Submit.tsx';
+import { Tips } from './Tips.tsx';
 
 export const Body = () => {
 	// states
 	const [showOutputs, setShowOutputs] = useState<boolean>(false);
 	const [inputValue, setInputValue] = useState<string>('');
 	const [submittedRequest, setSubmittedRequest] = useState<string>('');
+	const [pdfData, setPdfData] = useState<Record<string, string>[]>([]);
 
-	const handleSubmit = (request: string) => {
-		setSubmittedRequest(request);
+	const handleSubmit = (request: { pdfData: Record<string, string>[]; request: string }) => {
+		setSubmittedRequest(request.request);
+		setPdfData(request.pdfData);
 	};
 
 	// render
@@ -24,7 +26,7 @@ export const Body = () => {
 				setSubmittedRequest={handleSubmit} // pass the new function
 			/>
 			<Tips />
-			{showOutputs && <Outputs submittedRequest={submittedRequest} />}
+			{showOutputs && <Outputs submittedRequest={submittedRequest} pdfData={pdfData} />}
 			<History submittedRequest={submittedRequest} />
 		</div>
 	);

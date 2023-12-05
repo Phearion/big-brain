@@ -2,8 +2,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*'
 
 jobs:
   build-and-deploy:
@@ -19,13 +19,15 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build
         run: npm run build
-        env:
-          VITE_APP_PROD_SERVER_IP: ${{ secrets.REACT_APP_PROD_SERVER_IP }}
-          VITE_APP_API_PORT: ${{ secrets.REACT_APP_API_PORT }}
 
       - name: Deploy
-        run: npm run deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: dist # The folder the action should deploy.
+          token: ${{ secrets.GHPAGES_TOKEN }} # The GitHub Personal Access Token used to authenticate to GitHub.
+
