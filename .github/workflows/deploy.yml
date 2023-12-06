@@ -22,6 +22,9 @@ jobs:
         run: npm install
 
       - name: Build
+        env:
+          VITE_APP_PROD_SERVER_IP: ${{ secrets.VITE_APP_PROD_SERVER_IP }}
+          VITE_APP_API_PORT: ${{ secrets.VITE_APP_API_PORT }}
         run: npm run build
 
       - name: Deploy
