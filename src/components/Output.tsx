@@ -39,7 +39,7 @@ const createPDFLink = (pdf: Record<string, string>) => {
 
 const displayPDFs = (pdfData: Record<string, string>[]) => {
 	console.log('displayPDFs', pdfData);
-	const container = document.querySelector('.bb-answer-container');
+	const container = document.querySelector('.bb-sent-files-container');
 	if (container) {
 		container.textContent = '';
 

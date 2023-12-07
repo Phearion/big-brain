@@ -81,6 +81,10 @@
 	padding-left: 10px;
 }
 
+.input-text:focus {
+	outline: none;
+}
+
 .send-btn {
 	font-family: Kanit, sans-serif;
 	border-radius: 50px;
@@ -151,7 +155,6 @@
 .icon-link {
 	display: flex;
 	flex-direction: column;
-	margin-left: 2.8vw;
 	width: fit-content;
 }
 
@@ -160,6 +163,7 @@
 	flex-direction: row;
 	align-items: center;
 	padding-top: 5px;
+	margin-left: 3.2vw;
 }
 
 .dl-btn {
@@ -167,6 +171,7 @@
 	border: none;
 	color: #fff;
 	cursor: pointer;
+	text-align: left;
 }
 
 .history-btn {
