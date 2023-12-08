@@ -43,7 +43,11 @@
 .background-img {
 	position: absolute;
 	transform: translate(-50%, -50%);
-	opacity: 0.15;
+	opacity: 0.2;
+}
+
+.background-img-disappear {
+	display: none;
 }
 
 .body {
@@ -112,7 +116,7 @@
 }
 
 .loader-container {
-	display: flex;
+	display: none;
 	justify-content: center;
 	align-items: center;
 	position: absolute;
@@ -122,6 +126,10 @@
 	transform: translate(-50%, -50%);
 	background: #000;
 	animation: flicker 3s infinite ease-in-out;
+}
+
+.loader-container-appear {
+	display: flex;
 }
 
 @keyframes flicker {
@@ -173,16 +181,6 @@
 
 	100% {
 		transform: translate(-50%, -50%) rotateZ(360deg);
-	}
-}
-
-@keyframes rotateccw {
-	0% {
-		transform: translate(-50%, -50%) rotate(0deg);
-	}
-
-	100% {
-		transform: translate(-50%, -50%) rotate(-360deg);
 	}
 }
 

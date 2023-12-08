@@ -31,6 +31,11 @@ export function Submit({
 		} else {
 			let pdfData: Record<string, string>[] = [];
 			try {
+				const loaderContainer = document.querySelector('.loader-container');
+				const backgroundImgBrain = document.querySelector('.background-img');
+				loaderContainer?.classList.add('loader-container-appear');
+				backgroundImgBrain?.classList.add('background-img-disappear');
+
 				const res = await sendToSushiAPI(inputValue);
 				// if res is object containing a files key
 				if (res.files) {
