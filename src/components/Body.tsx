@@ -28,9 +28,6 @@ export const Body = () => {
 			<Tips />
 			{showOutputs && <Outputs submittedRequest={submittedRequest} pdfData={pdfData} />}
 			<History submittedRequest={submittedRequest} />
-			<div className="loader-container">
-				<span className="loader"></span>
-			</div>
 		</div>
 	);
 };

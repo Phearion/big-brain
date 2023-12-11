@@ -41,10 +41,12 @@ const displayPDFs = (pdfData: Record<string, string>[]) => {
 	console.log('displayPDFs', pdfData);
 	const container = document.querySelector('.bb-sent-files-container');
 	const loaderContainer = document.querySelector('.loader-container');
+	const sendBtn = document.querySelector('.send-btn');
 	const backgroundImgBrain = document.querySelector('.background-img');
 	if (container) {
 		loaderContainer?.classList.remove('loader-container-appear');
 		backgroundImgBrain?.classList.remove('background-img-disappear');
+		sendBtn?.classList.remove('send-btn-disappear');
 		container.textContent = '';
 
 		for (const pdf of pdfData) {
@@ -55,9 +57,6 @@ const displayPDFs = (pdfData: Record<string, string>[]) => {
 			const div = createPDFLink(pdf);
 			container.appendChild(div);
 		}
-	} else {
-		loaderContainer?.classList.add('loader-container-appear');
-		backgroundImgBrain?.classList.add('background-img-disappear');
 	}
 };
 

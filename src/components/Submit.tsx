@@ -32,8 +32,10 @@ export function Submit({
 			let pdfData: Record<string, string>[] = [];
 			try {
 				const loaderContainer = document.querySelector('.loader-container');
+				const sendBtn = document.querySelector('.send-btn');
 				const backgroundImgBrain = document.querySelector('.background-img');
 				loaderContainer?.classList.add('loader-container-appear');
+				sendBtn?.classList.add('send-btn-disappear');
 				backgroundImgBrain?.classList.add('background-img-disappear');
 
 				const res = await sendToSushiAPI(inputValue);
@@ -85,6 +87,9 @@ export function Submit({
 							className="button-img"
 						></img>
 					</button>
+					<div className="loader-container">
+						<span className="loader"></span>
+					</div>
 				</div>
 			</form>
 		</div>
