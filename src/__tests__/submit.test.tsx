@@ -2,7 +2,7 @@ import { render, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { useState } from 'react';
 import { act } from 'react-dom/test-utils';
-import { Submit } from '../components/submit.tsx';
+import { Submit } from '../components/Submit.tsx';
 import { sendToSushiAPI } from '../sushi/sushi.tsx';
 
 jest.mock('../sushi/sushi.tsx', () => ({
