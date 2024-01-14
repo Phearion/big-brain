@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Kanit:wght@600&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sometype+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+/* Tablets (landscape) */
+@media screen and (width >= 720px) and (width <= 1024px) and (orientation: landscape) {
+	.bb-title {
+		font-size: 6vw;
+	}
+
+	.slogan {
+		font-size: 3vw;
+	}
+
+	.background-img {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -20%);
+		width: 20%;
+	}
+
+	.input-container {
+		bottom: 15%;
+	}
+
+	.input-text {
+		font-size: 1.75vw !important;
+	}
+
+	.form-container {
+		width: 80vw;
+	}
+
+	.form-container input {
+		height: 3.5vw;
+	}
+
+	.form-container button {
+		height: 3vw;
+		width: 5vw;
+	}
+
+	.send-btn {
+		position: absolute;
+		width: 8%;
+		left: 91.5%;
+	}
+
+	.loader-container {
+		border: 5px solid transparent;
+		left: 93.75%;
+	}
+
+	.loader {
+		width: 3vw;
+		height: 3vw;
+	}
+
+	.tips {
+		bottom: 7%;
+		font-size: 2vw;
+	}
+
+	.output {
+		background-color: rgb(255 255 255 / 6%);
+		border: 4px solid rgb(252 252 252 / 10%);
+		height: 45%;
+		width: 80vw;
+		top: 25%;
+	}
+
+	.student-logo {
+		width: 4vw;
+	}
+
+	.ai-logo {
+		width: 4vw;
+	}
+
+	.bb-answer,
+	.student-question {
+		font-size: 1.5vw;
+	}
+
+	.pdf-icon-img {
+		width: 3vw;
+	}
+
+	.dl-btn {
+		font-size: 1.5vw;
+	}
+
+	.history-btn {
+		height: 3.1vw;
+		bottom: 15.5%;
+		left: 92%;
+	}
+
+	.history-div {
+		height: 70%;
+		width: 25%;
+		bottom: 22%;
+		left: 69%;
+	}
+
+	.history-request {
+		margin-bottom: 0.75vw;
+	}
+
+	.separator {
+		margin-top: 1vw;
+		margin-bottom: 1vw;
+	}
+
+	.footer-content {
+		font-size: 1.25vw;
+	}
+}
+
+/* Tablets (portrait) */
+@media screen and (width >= 720px) and (width <= 1024px) and (orientation: portrait) {
+	.bb-title {
+		font-size: 10vw;
+	}
+
+	.slogan {
+		font-size: 5vw;
+	}
+
+	.background-img {
+		top: 50%;
+		transform: translate(0%, -25%);
+		margin: 0 auto;
+		width: 40%;
+	}
+
+	.input-container {
+		bottom: 15%;
+	}
+
+	.input-text {
+		font-size: 2.25vw !important;
+	}
+
+	.form-container {
+		width: 80vw;
+	}
+
+	.form-container input {
+		height: 5vw;
+	}
+
+	.form-container button {
+		height: 4vw;
+		width: 6vw;
+	}
+
+	.send-btn {
+		position: absolute;
+		width: 8%;
+		left: 91.5%;
+	}
+
+	.loader-container {
+		border: 6px solid transparent;
+		left: 91.5%;
+	}
+
+	.loader {
+		width: 3.5vw;
+		height: 3.5vw;
+	}
+
+	.tips {
+		bottom: 7%;
+		font-size: 3vw;
+	}
+
+	.output {
+		background-color: rgb(255 255 255 / 6%);
+		border: 4px solid rgb(252 252 252 / 10%);
+		height: 58%;
+		width: 80vw;
+		top: 20%;
+	}
+
+	.student-logo {
+		width: 5vw;
+	}
+
+	.ai-logo {
+		width: 5vw;
+	}
+
+	.bb-answer,
+	.student-question {
+		font-size: 2.5vw;
+	}
+
+	.pdf-icon-img {
+		width: 5vw;
+	}
+
+	.dl-btn {
+		font-size: 2.5vw;
+	}
+
+	.history-btn {
+		height: 5vw;
+		bottom: 15%;
+		left: 92%;
+	}
+
+	.history-div {
+		height: 75%;
+		width: 90%;
+		bottom: 20%;
+		left: 2.5%;
+	}
+
+	.history-request {
+		margin-bottom: 0.75vw;
+		font-size: 2.5vw;
+	}
+
+	.separator {
+		margin-top: 1vw;
+		margin-bottom: 1vw;
+	}
+
+	.footer-content {
+		font-size: 2.5vw;
+	}
+}
