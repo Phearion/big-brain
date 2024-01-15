@@ -228,6 +228,34 @@
 		margin-bottom: 1vw;
 	}
 
+	.credits-contributor {
+		padding-bottom: 5vw;
+	}
+
+	.credits-title {
+		font-size: 5vw;
+	}
+
+	.contributor-img {
+		width: 18vw;
+	}
+
+	.sn-icon {
+		width: 4vw;
+	}
+
+	.contributor-name {
+		font-size: 3vw;
+	}
+
+	.contributor-role {
+		font-size: 3vw;
+	}
+
+	.gh-link {
+		font-size: 3vw;
+	}
+
 	.footer-content {
 		font-size: 2.5vw;
 	}

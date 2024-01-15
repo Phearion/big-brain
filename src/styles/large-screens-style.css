@@ -12,6 +12,35 @@
 		font-size: 2vw;
 	}
 
+	.student-word-one::before,
+	.student-word-one::after {
+		content: '';
+		position: absolute;
+		top: 5vh;
+		width: 0;
+		height: 2px;
+		background-color: blue;
+		transition: width 0.3s ease;
+	}
+
+	.student-word-one::before {
+		left: 50%;
+		transform: translateX(-100%);
+	}
+
+	.student-word-one::after {
+		right: 50%;
+		transform: translateX(100%);
+	}
+
+	.student-word-one:hover::before {
+		width: 50%;
+	}
+
+	.student-word-one:hover::after {
+		width: 50%;
+	}
+
 	.background-img {
 		top: 50%;
 		left: 50%;
@@ -116,6 +145,30 @@
 	.separator {
 		margin-top: 1vw;
 		margin-bottom: 1vw;
+	}
+
+	.credits-contributor {
+		padding-bottom: 2vw;
+	}
+
+	.contributor-img {
+		width: 8vw;
+	}
+
+	.sn-icon {
+		width: 2vw;
+	}
+
+	.contributor-name {
+		font-size: 1.25vw;
+	}
+
+	.contributor-role {
+		font-size: 1.25vw;
+	}
+
+	.gh-link {
+		font-size: 1.25vw;
 	}
 
 	.footer-content {
