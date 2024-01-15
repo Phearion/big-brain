@@ -1,7 +1,6 @@
 import { Contributor } from './Contributor';
 
 export const Credits = ({
-	showCredits,
 	creditsVisible,
 	setCreditsVisible,
 }: {
