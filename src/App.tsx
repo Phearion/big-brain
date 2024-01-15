@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Body } from './components/Body.tsx';
-import { Credits } from './components/Credits';
+import { Credits } from './components/Credits.tsx';
 import { Footer } from './components/Footer.tsx';
 import { Header } from './components/Header.tsx';
 import './styles/common-style.css';
