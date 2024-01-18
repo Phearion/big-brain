@@ -112,6 +112,35 @@
 		margin-bottom: 1vw;
 	}
 
+	.credits-contributor {
+		padding-bottom: 2vw;
+		margin-left: 70%;
+	}
+
+	.credits-title {
+		font-size: 3vw;
+	}
+
+	.contributor-img {
+		width: 8vw;
+	}
+
+	.sn-icon {
+		width: 2vw;
+	}
+
+	.contributor-name {
+		font-size: 1vw;
+	}
+
+	.contributor-role {
+		font-size: 1vw;
+	}
+
+	.gh-link {
+		font-size: 1vw;
+	}
+
 	.footer-content {
 		font-size: 1.25vw;
 	}
@@ -230,6 +259,7 @@
 
 	.credits-contributor {
 		padding-bottom: 5vw;
+		margin-left: 20%;
 	}
 
 	.credits-title {

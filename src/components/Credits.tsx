@@ -18,14 +18,14 @@ export const Credits = ({
 		},
 		{
 			name: 'Matthias Cadet',
-			role: ', Développeur',
+			role: ', Développeur expérimenté',
 			imgLink: '././img/contributors/matthias.png',
 			ghLink: 'https://github.com/KreatorOf',
 			pseudo: 'KreatorOf',
 		},
 		{
 			name: 'Pritam Kantane',
-			role: ', Développeur',
+			role: ', Développeur expérimenté',
 			imgLink: '././img/contributors/pritam.png',
 			ghLink: 'https://github.com/PyyLog',
 			pseudo: 'PyyLog',
