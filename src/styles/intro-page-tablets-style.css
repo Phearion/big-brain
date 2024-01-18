@@ -1,0 +1,21 @@
+/* Tablets (landscape) */
+@media screen and (width >= 720px) and (width <= 1024px) and (orientation: landscape) {
+	.phearion-logo {
+		width: 12vw;
+	}
+
+	.catchphrase {
+		font-size: 2.5vw;
+	}
+}
+
+/* Tablets (portrait) */
+@media screen and (width >= 720px) and (width <= 1024px) and (orientation: portrait) {
+	.phearion-logo {
+		width: 16vw;
+	}
+
+	.catchphrase {
+		font-size: 4vw;
+	}
+}

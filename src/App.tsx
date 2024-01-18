@@ -4,11 +4,14 @@ import { Credits } from './components/Credits.tsx';
 import { Footer } from './components/Footer.tsx';
 import { Header } from './components/Header.tsx';
 import { IntroPage } from './components/IntroPage.tsx';
-import './styles/intro-page-style.css';
-import './styles/common-style.css';
-import './styles/mobiles-style.css';
-import './styles/tablets-style.css';
-import './styles/large-screens-style.css';
+import './styles/intro-page-common-style.css';
+import './styles/intro-page-mobiles-style.css';
+import './styles/intro-page-tablets-style.css';
+import './styles/intro-page-large-screens-style.css';
+import './styles/main-page-common-style.css';
+import './styles/main-page-mobiles-style.css';
+import './styles/main-page-tablets-style.css';
+import './styles/main-page-large-screens-style.css';
 
 function App() {
 	const [showCredits, setShowCredits] = useState(false);
