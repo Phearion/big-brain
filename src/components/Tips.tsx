@@ -6,7 +6,7 @@ const WORDS = [
 	'Tiens le coup, ça va le faire !',
 	'Tu vas y arriver !',
 	'Tu es sur la bonne voie',
-	'on est tous passé par là ;)',
+	'On est tous passé par là ;)',
 	'Encore quelques années et tu seras ingénieur !',
 	"On aura pas 0 ! On aura 10/20 parce qu'on a révisé.",
 ];

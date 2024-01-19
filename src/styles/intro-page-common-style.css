@@ -1,0 +1,47 @@
+.intro-page {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #060c1a;
+	height: 100vh;
+	overflow-y: hidden;
+}
+
+.intro {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	animation: light-enlarge 3s ease-in-out forwards;
+}
+
+.catchphrase {
+	font-family: Caveat, cursive;
+	color: #737593;
+	text-align: center;
+}
+
+.fade-in {
+	animation: fade-in-logic 1.5s ease-in-out;
+}
+
+@keyframes light-enlarge {
+	0% {
+		transform: scale(0.9);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes fade-in-logic {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}

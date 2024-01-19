@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Kanit:wght@600&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sometype+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+/* Other devices */
+@media screen and (width >= 1025px) {
+	.bb-title {
+		font-size: 5vw;
+	}
+
+	.slogan {
+		font-size: 2vw;
+	}
+
+	.student-word-one::before,
+	.student-word-one::after {
+		content: '';
+		position: absolute;
+		top: 5vh;
+		width: 0;
+		height: 2px;
+		background-color: blue;
+		transition: width 0.3s ease;
+	}
+
+	.student-word-one::before {
+		left: 50%;
+		transform: translateX(-100%);
+	}
+
+	.student-word-one::after {
+		right: 50%;
+		transform: translateX(100%);
+	}
+
+	.student-word-one:hover::before {
+		width: 50%;
+	}
+
+	.student-word-one:hover::after {
+		width: 50%;
+	}
+
+	.background-img {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, 40%);
+		width: 20%;
+	}
+
+	.input-container {
+		bottom: 14%;
+	}
+
+	.input-text {
+		font-size: 1.5vw !important;
+	}
+
+	.form-container {
+		width: 80vw;
+	}
+
+	.form-container input {
+		height: 3vw;
+	}
+
+	.form-container button {
+		height: 2.5vw;
+	}
+
+	.send-btn {
+		position: absolute;
+		width: 5%;
+		left: 94%;
+	}
+
+	.loader-container {
+		border: 5px solid transparent;
+		left: 94.75%;
+	}
+
+	.loader {
+		width: 2.5vw;
+		height: 2.5vw;
+	}
+
+	.tips-container {
+		display: flex;
+	}
+
+	.tips {
+		bottom: 7%;
+		font-size: 1.25vw;
+	}
+
+	.output {
+		display: flex;
+		background-color: rgb(255 255 255 / 6%);
+		border: 4px solid rgb(252 252 252 / 10%);
+		top: 25%;
+		height: 45%;
+		width: 80vw;
+	}
+
+	.student-logo {
+		width: 2.5vw;
+	}
+
+	.ai-logo {
+		width: 2.5vw;
+	}
+
+	.bb-answer,
+	.student-question {
+		font-size: 1.2vw;
+	}
+
+	.pdf-icon-img {
+		width: 2.5vw;
+	}
+
+	.dl-btn {
+		font-size: 1.2vw;
+	}
+
+	.history-btn {
+		height: 3vw;
+		bottom: 14%;
+		left: 92%;
+		font-size: 1vw;
+	}
+
+	.history-div {
+		height: 70%;
+		width: 30%;
+		bottom: 22%;
+		left: 64%;
+	}
+
+	.history-request {
+		margin-bottom: 0.75vw;
+		font-size: 1.2vw;
+	}
+
+	.separator {
+		margin-top: 1vw;
+		margin-bottom: 1vw;
+	}
+
+	.credits-contributor {
+		padding-bottom: 2vw;
+		margin-left: 70%;
+	}
+
+	.contributor-img {
+		width: 8vw;
+	}
+
+	.sn-icon {
+		width: 2vw;
+	}
+
+	.contributor-name {
+		font-size: 1.25vw;
+	}
+
+	.contributor-role {
+		font-size: 1.25vw;
+	}
+
+	.gh-link {
+		font-size: 1.25vw;
+	}
+
+	.footer-content {
+		font-size: 1vw;
+	}
+}
