@@ -95,7 +95,6 @@
 }
 
 .send-btn {
-	font-family: Kanit, sans-serif;
 	border-radius: 50px;
 	border: none;
 	background-color: #4660c8;
@@ -113,6 +112,10 @@
 	box-shadow: 0 0 5px black inset;
 }
 
+.send-btn-appear {
+	display: flex;
+}
+
 .send-btn-disappear {
 	display: none;
 }
@@ -121,7 +124,7 @@
 	height: 50%;
 	width: 50%;
 	aspect-ratio: auto;
-	transform: translate(-5%, 10%);
+	margin: auto;
 }
 
 .loader-container {

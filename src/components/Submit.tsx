@@ -38,15 +38,14 @@ export function Submit({
 			setSubmittedRequest({ request: inputValue, pdfData: [] });
 
 			let pdfData: Record<string, string>[] = [];
+			const loaderContainer = document.querySelector('.loader-container');
+			const sendBtn = document.querySelector('.send-btn');
+			const outputDiv = document.querySelector('.output');
 
 			try {
 				setIsLoading(true);
-				const loaderContainer = document.querySelector('.loader-container');
-				const sendBtn = document.querySelector('.send-btn');
-				const outputDiv = document.querySelector('.output');
 				loaderContainer?.classList.add('loader-container-appear');
 				sendBtn?.classList.add('send-btn-disappear');
-
 				outputDiv?.classList.add('output-appear');
 
 				const res = await sendToSushiAPI(inputValue);
@@ -79,6 +78,8 @@ export function Submit({
 
 			setIsSubmitting(false);
 			setIsLoading(false);
+			loaderContainer?.classList.add('loader-container-disappear');
+			sendBtn?.classList.add('send-btn-appear');
 		}
 	};
 

@@ -85,7 +85,7 @@ export const Outputs = ({
 					<div className="bb-answer-container">
 						<img src={'././img/brain.png'} alt="brain-logo" className="ai-logo"></img>
 						<p className="bb-answer">
-							Je suis actuellement en train de traiter ta demande. Sois un peu patient ! ;)
+							Je suis actuellement en train de traiter ta demande. Sois patient ! ;)
 						</p>
 					</div>
 					<div className="bb-sent-files-container"></div>
@@ -109,7 +109,7 @@ export const Outputs = ({
 					<div className="bb-answer-container">
 						<img src={'././img/brain.png'} alt="brain-logo" className="ai-logo"></img>
 						<p className="bb-answer">
-							Voici ce que j\'ai trouvé en lien avec ce que tu as demandé :
+							Voici ce que j'ai trouvé en lien avec ce que tu as demandé :
 						</p>
 					</div>
 					<div className="bb-sent-files-container"></div>
