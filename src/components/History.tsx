@@ -5,9 +5,15 @@ const windowOpen = (path: string) => {
 	window.open(path, '_blank');
 };
 
-export const History = ({ submittedRequest }: { submittedRequest: string }) => {
-	const history_div = document.querySelector('.history-div');
-
+export const History = ({
+	submittedRequest,
+	historyVisible,
+	setHistoryVisible,
+}: {
+	historyVisible: boolean;
+	setHistoryVisible: any;
+	submittedRequest: string;
+}) => {
 	const addDlLink = (paths: any) => {
 		const saved_request = document.querySelector('.saved-request');
 		const history_request = document.createElement('div');
@@ -44,37 +50,23 @@ export const History = ({ submittedRequest }: { submittedRequest: string }) => {
 		}
 	};
 
+	const hideHistory = () => {
+		const historyContainer = document.querySelector('.history-container');
+		historyContainer?.classList.add('hide');
+		// eslint-disable-next-line no-restricted-globals
+		setTimeout(() => setHistoryVisible(false), 1_000);
+	};
+
 	useEffect(() => {
 		addDlLink(webPathsList);
 	}, [submittedRequest]); // Dependency array includes submittedRequest so the effect runs whenever submittedRequest changes
 
-	const history_appear = () => {
-		const history_request = document.querySelector('.saved-request');
-
-		if (history_request?.textContent === '') {
-			// eslint-disable-next-line no-alert
-			alert("L'historique est vide !");
-			return;
-		}
-
-		if (history_div?.classList.contains('history-div-appear')) {
-			history_div?.classList.remove('history-div-appear');
-			history_div?.classList.add('history-div-disappear');
-		} else {
-			history_div?.classList.remove('history-div-disappear');
-			history_div?.classList.add('history-div-appear');
-		}
-	};
-
 	// render
 	return (
-		<div className="history-container">
-			<button onClick={history_appear} className="history-btn">
-				<img src={'././img/clock.png'} alt="clock" className="clock-img"></img>
-			</button>
-			<div className="history-div">
-				<div className="saved-request"></div>
-			</div>
+		<div className={`history-container ${historyVisible ? 'show' : ''}`}>
+			<div className="history-title">Historique</div>
+			<div className="saved-request"></div>
+			<div className="cross-history" onClick={hideHistory}></div>
 		</div>
 	);
 };

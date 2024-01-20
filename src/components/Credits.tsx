@@ -6,7 +6,6 @@ export const Credits = ({
 }: {
 	creditsVisible: boolean;
 	setCreditsVisible: any;
-	showCredits: boolean;
 }) => {
 	const contributors = [
 		{
