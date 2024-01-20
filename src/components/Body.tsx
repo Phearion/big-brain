@@ -4,7 +4,7 @@ import { Outputs } from './Output.tsx';
 import { Submit } from './Submit.tsx';
 import { Tips } from './Tips.tsx';
 
-export const Body = () => {
+export const Body = ({ isLoading, setIsLoading }: { isLoading: any; setIsLoading: any }) => {
 	// states
 	const [showOutputs, setShowOutputs] = useState<boolean>(false);
 	const [inputValue, setInputValue] = useState<string>('');
@@ -24,9 +24,12 @@ export const Body = () => {
 				inputValue={inputValue}
 				setInputValue={setInputValue}
 				setSubmittedRequest={handleSubmit} // pass the new function
+				setIsLoading={setIsLoading}
 			/>
+			{showOutputs && (
+				<Outputs submittedRequest={submittedRequest} pdfData={pdfData} isLoading={isLoading} />
+			)}
 			<Tips />
-			{showOutputs && <Outputs submittedRequest={submittedRequest} pdfData={pdfData} />}
 			<History submittedRequest={submittedRequest} />
 		</div>
 	);

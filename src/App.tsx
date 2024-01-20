@@ -16,12 +16,13 @@ import './styles/main-page-large-screens-style.css';
 function App() {
 	const [showCredits, setShowCredits] = useState(false);
 	const [creditsVisible, setCreditsVisible] = useState(false);
-	const [isLoaded, setIsLoaded] = useState(false);
+	const [isSetIntroPage, setIsSetIntroPage] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
 		// eslint-disable-next-line no-restricted-globals
 		const timer = setTimeout(() => {
-			setIsLoaded(true);
+			setIsSetIntroPage(true);
 		}, 3_000);
 		// eslint-disable-next-line no-restricted-globals
 		return () => clearTimeout(timer);
@@ -30,7 +31,7 @@ function App() {
 	// render
 	return (
 		<>
-			{isLoaded === false ? (
+			{isSetIntroPage === false ? (
 				<IntroPage />
 			) : (
 				<div className="app fade-in">
@@ -39,7 +40,7 @@ function App() {
 						setShowCredits={setShowCredits}
 						setCreditsVisible={setCreditsVisible}
 					/>
-					<Body />
+					<Body isLoading={isLoading} setIsLoading={setIsLoading} />
 					<Footer />
 					<Credits
 						creditsVisible={creditsVisible}

@@ -1,5 +1,5 @@
 /* Mobile devices (portrait) */
-@media screen and (width < 720px) {
+@media screen and (width < 720px) and (orientation: portrait) {
 	.phearion-logo {
 		width: 21vw;
 	}
@@ -10,7 +10,7 @@
 }
 
 /* Mobile - Galaxy fold (portrait) */
-@media screen and (width <= 280px) {
+@media screen and (width <= 280px) and (orientation: portrait) {
 	.phearion-logo {
 		width: 21vw;
 	}
@@ -21,7 +21,7 @@
 }
 
 /* Mobile screens (landscape) */
-@media screen and (width <= 1025px) and (height <= 540px) {
+@media screen and (width <= 1025px) and (height <= 540px) and (orientation: landscape) {
 	.phearion-logo {
 		width: 12vw;
 	}

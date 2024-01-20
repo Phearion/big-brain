@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
 
 /* Other devices */
-@media screen and (width >= 1025px) {
+@media screen and (width >= 1025px) and (orientation: landscape) {
 	.bb-title {
 		font-size: 5vw;
 	}
