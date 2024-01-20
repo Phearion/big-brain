@@ -62,11 +62,9 @@
 	}
 
 	.output {
-		background-color: rgb(255 255 255 / 6%);
-		border: 4px solid rgb(252 252 252 / 10%);
-		height: 45%;
-		width: 80vw;
-		top: 25%;
+		display: flex;
+		background-color: transparent;
+		border: none;
 	}
 
 	.student-logo {
@@ -206,6 +204,7 @@
 	}
 
 	.output {
+		display: flex;
 		background-color: rgb(255 255 255 / 6%);
 		border: 4px solid rgb(252 252 252 / 10%);
 		height: 58%;

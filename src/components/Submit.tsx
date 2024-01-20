@@ -7,9 +7,11 @@ export function Submit({
 	inputValue,
 	setInputValue,
 	setSubmittedRequest,
+	setIsLoading,
 }: {
 	inputValue: string;
 	setInputValue(inputValue: string): void;
+	setIsLoading(isLoading: boolean): void;
 	setShowOutputs(showOutputs: boolean): void;
 	setSubmittedRequest(submittedRequest: {
 		pdfData: Record<string, string>[];
@@ -38,6 +40,7 @@ export function Submit({
 			let pdfData: Record<string, string>[] = [];
 
 			try {
+				setIsLoading(true);
 				const loaderContainer = document.querySelector('.loader-container');
 				const sendBtn = document.querySelector('.send-btn');
 				const outputDiv = document.querySelector('.output');
@@ -75,6 +78,7 @@ export function Submit({
 			}
 
 			setIsSubmitting(false);
+			setIsLoading(false);
 		}
 	};
 

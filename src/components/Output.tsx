@@ -61,7 +61,9 @@ const displayPDFs = (pdfData: Record<string, string>[]) => {
 export const Outputs = ({
 	submittedRequest,
 	pdfData,
+	isLoading,
 }: {
+	isLoading: boolean;
 	pdfData: Record<string, string>[];
 	submittedRequest: string;
 }) => {
@@ -78,12 +80,36 @@ export const Outputs = ({
 				<img src={'././img/user.png'} alt="student-logo" className="student-logo"></img>
 				<p className="student-question">{submittedRequest}</p>
 			</div>
+			{pdfData.length === 0 && isLoading && (
+				<>
+					<div className="bb-answer-container">
+						<img src={'././img/brain.png'} alt="brain-logo" className="ai-logo"></img>
+						<p className="bb-answer">
+							Je suis actuellement en train de traiter ta demande. Sois un peu patient ! ;)
+						</p>
+					</div>
+					<div className="bb-sent-files-container"></div>
+				</>
+			)}
+
+			{pdfData.length === 0 && !isLoading && (
+				<>
+					<div className="bb-answer-container">
+						<img src={'././img/brain.png'} alt="brain-logo" className="ai-logo"></img>
+						<p className="bb-answer">
+							Désolé, je n'ai rien trouvé en lien avec ce que tu as demandé. :(
+						</p>
+					</div>
+					<div className="bb-sent-files-container"></div>
+				</>
+			)}
+
 			{pdfData.length > 0 && (
 				<>
 					<div className="bb-answer-container">
 						<img src={'././img/brain.png'} alt="brain-logo" className="ai-logo"></img>
 						<p className="bb-answer">
-							Voici ce que j'ai trouvé en lien avec ce que tu as demandé :
+							Voici ce que j\'ai trouvé en lien avec ce que tu as demandé :
 						</p>
 					</div>
 					<div className="bb-sent-files-container"></div>

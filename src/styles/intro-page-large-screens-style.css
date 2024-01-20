@@ -1,5 +1,5 @@
 /* Other devices */
-@media screen and (width >= 1025px) {
+@media screen and (width >= 1025px) and (orientation: landscape) {
 	.phearion-logo {
 		width: 10vw;
 	}
