@@ -45,6 +45,7 @@ export const Body = ({
 				submittedRequest={submittedRequest}
 				historyVisible={historyVisible}
 				setHistoryVisible={setHistoryVisible}
+				pdfData={pdfData}
 			/>
 
 			<Tips />
