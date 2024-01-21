@@ -1,7 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Kanit:wght@600&family=Satisfy&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sometype+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
-
 /* Other devices */
 @media screen and (width >= 1025px) and (orientation: landscape) {
 	.bb-title {
@@ -196,12 +192,18 @@
 	.history-title {
 		font-size: 2vw;
 		padding-top: 2vw;
-		padding-bottom: 2vw;
+		padding-bottom: 4vw;
 	}
 
 	.history-request {
 		margin-left: 2vw;
-		font-size: 1.5vw;
+		margin-bottom: 0.75vw;
+		font-size: 1.2vw;
+	}
+
+	.separator {
+		margin-top: 1vw;
+		margin-bottom: 1vw;
 	}
 
 	.cross-history {

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const createPDFLink = (pdf: Record<string, string>) => {
 	const img = document.createElement('img');
@@ -42,6 +42,9 @@ const displayPDFs = (pdfData: Record<string, string>[]) => {
 	const container = document.querySelector('.bb-sent-files-container');
 	const loaderContainer = document.querySelector('.loader-container');
 	const sendBtn = document.querySelector('.send-btn');
+	const savedRequest = document.querySelector('.saved-request');
+	const separator_ = document.createElement('div');
+	separator_.className = 'separator';
 	if (container) {
 		loaderContainer?.classList.remove('loader-container-appear');
 		sendBtn?.classList.remove('send-btn-disappear');
@@ -54,6 +57,8 @@ const displayPDFs = (pdfData: Record<string, string>[]) => {
 
 			const div = createPDFLink(pdf);
 			container.appendChild(div);
+			savedRequest?.appendChild(div);
+			savedRequest?.appendChild(separator_);
 		}
 	}
 };
@@ -61,6 +66,7 @@ const displayPDFs = (pdfData: Record<string, string>[]) => {
 export const History = ({
 	historyVisible,
 	setHistoryVisible,
+	submittedRequest,
 	pdfData,
 }: {
 	historyVisible: boolean;
@@ -68,6 +74,8 @@ export const History = ({
 	setHistoryVisible: any;
 	submittedRequest: string;
 }) => {
+	const [displayedRequests, setDisplayedRequests] = useState<string[]>([]);
+
 	const hideHistory = () => {
 		const historyContainer = document.querySelector('.history-container');
 		historyContainer?.classList.add('hide');
@@ -75,7 +83,23 @@ export const History = ({
 		setTimeout(() => setHistoryVisible(false), 1_000);
 	};
 
+	const displaySubmittedRequest = (request: string) => {
+		const savedRequest = document.querySelector('.saved-request');
+		if (savedRequest && !displayedRequests.includes(request)) {
+			const historyRequest = document.createElement('div');
+			historyRequest.textContent = request;
+			historyRequest.className = 'history-request';
+			savedRequest.appendChild(historyRequest);
+
+			setDisplayedRequests((prevRequests) => [...prevRequests, request]);
+		}
+	};
+
 	useEffect(() => {
+		if (submittedRequest && !displayedRequests.includes(submittedRequest)) {
+			displaySubmittedRequest(submittedRequest);
+		}
+
 		if (pdfData.length > 0) {
 			displayPDFs(pdfData);
 		}

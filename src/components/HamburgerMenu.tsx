@@ -37,6 +37,7 @@ export const HamburgerMenu = ({
 	const handleClickCredits = () => {
 		setShowCredits(!showCredits);
 		setCreditsVisible(true);
+		hideMenu();
 	};
 
 	const handleClickHistory = () => {

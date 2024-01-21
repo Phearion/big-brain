@@ -1,7 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Kanit:wght@600&family=Satisfy&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sometype+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
-
 /* Mobile devices (portrait) */
 @media screen and (width < 720px) and (orientation: portrait) {
 	.bb-title {
@@ -157,8 +153,14 @@
 	}
 
 	.history-request {
-		margin-left: 6vw;
-		font-size: 5vw;
+		margin-left: 4vw;
+		margin-bottom: 2vw;
+		font-size: 4.25vw;
+	}
+
+	.separator {
+		margin-top: 7vw;
+		margin-bottom: 7vw;
 	}
 
 	.cross-history {
@@ -249,16 +251,10 @@
 	.saved-request {
 		font-size: 80%;
 	}
-
-	.history-btn {
-		font-size: 70%;
-		bottom: 5vw;
-		right: 10vw;
-	}
 }
 
 /* Mobile screens (landscape) */
-@media screen and (width <= 1025px) and (height <= 540px) and (orientation: landscape) {
+@media screen and (height <= 540px) and (width <= 719px) and (orientation: landscape) {
 	.hamburger-menu-container {
 		width: 3vw;
 		height: 3vw;
@@ -363,8 +359,14 @@
 	}
 
 	.history-request {
-		margin-left: 3vw;
-		font-size: 2vw;
+		margin-left: 2vw;
+		margin-bottom: -0.75vw;
+		font-size: 1.2vw;
+	}
+
+	.separator {
+		margin-top: 1vw;
+		margin-bottom: 1vw;
 	}
 
 	.cross-history {
@@ -487,6 +489,17 @@
 		font-size: 2vw;
 	}
 
+	.history-request {
+		margin-left: 2vw;
+		margin-bottom: 1vw;
+		font-size: 2vw;
+	}
+
+	.separator {
+		margin-top: 3vw;
+		margin-bottom: 3vw;
+	}
+
 	.footer-content {
 		font-size: 1.5vw;
 	}
@@ -503,7 +516,7 @@
 	}
 }
 
-@keyframes slide-out-menu {
+@keyframes slide-out-menu-mobile {
 	0% {
 		transform: translateX(0);
 	}

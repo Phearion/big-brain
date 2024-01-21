@@ -324,7 +324,7 @@
 .history-container.show {
 	display: flex;
 	z-index: 9999;
-	animation: slide-in-history 0.8s ease-in-out forwards;
+	animation: slide-in-history 1s ease-in-out forwards;
 }
 
 .history-container.hide {
@@ -342,13 +342,17 @@
 	display: flex;
 	flex-direction: column;
 	word-wrap: break-word;
-	border-bottom: 1px solid #4c4d51;
 }
 
 .history-request {
 	display: flex;
 	height: fit-content;
 	color: #fff;
+}
+
+.separator {
+	display: flex;
+	border-bottom: 1px solid #4c4d51;
 }
 
 .cross-history {
@@ -392,7 +396,7 @@
 .credits-container.show {
 	display: flex;
 	z-index: 99999;
-	animation: slide-in-credits 0.8s ease-in-out forwards;
+	animation: slide-in-credits 1s ease-in-out forwards;
 }
 
 .credits-container.hide {
