@@ -16,7 +16,7 @@ export const checkRequest = async (request: string) => {
 
 		if (!response.ok) {
 			console.error('Server responded with non-2xx status:', response.status);
-			return { success: false, message: 'Server error occurred. Please try again.' };
+			return { success: false, status: response.status };
 		}
 
 		const data = await response.json();

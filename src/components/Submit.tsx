@@ -32,41 +32,45 @@ export function Submit({
 		} else {
 			try {
 				const checkRequestResult = await checkRequest(inputValue);
-				if (!checkRequestResult.success) {
+				if (checkRequestResult.success) {
+					let pdfData: Record<string, string>[] = [];
+					try {
+						const res = await sendToSushiAPI(inputValue);
+						// if res is object containing a files key
+						if (res.files) {
+							pdfData = res.files;
+						} else {
+							setApiError('Woaaa, je lag de fou là. Peut être en maintenance.'); // set the error message
+							return;
+						}
+					} catch {
+						setApiError("Une erreur s'est produite, veuillez réessayer plus tard."); // set the error message
+						return;
+					}
+
+					try {
+						await saveRequestToDB(inputValue);
+					} catch {
+						setApiError("Une erreur s'est produite, veuillez réessayer plus tard."); // set the error message
+						return;
+					}
+
+					if (!apiError) {
+						setSubmittedRequest({ request: inputValue, pdfData });
+						setInputValue('');
+						setPlaceholder('Pose moi ta question...');
+						setShowOutputs(true);
+					}
+				} else if (checkRequestResult.status === 400) {
 					setApiError('Injection SQL détectée !'); // set the error message
+					// eslint-disable-next-line no-alert
+					alert('Injection SQL détectée ! La prochaine fois, je te ban !');
+				} else {
+					setApiError('Woaaa, je lag de fou là. Peut être en maintenance.'); // set the error message
 				}
 			} catch {
 				setApiError("Une erreur s'est produite, veuillez réessayer plus tard."); // set the error message
 			}
-
-			// let pdfData: Record<string, string>[] = [];
-			// try {
-			// 	const res = await sendToSushiAPI(inputValue);
-			// 	// if res is object containing a files key
-			// 	if (res.files) {
-			// 		pdfData = res.files;
-			// 	} else {
-			// 		setApiError('Woaaa, je lag de fou là. Peut être en maintenance.'); // set the error message
-			// 		return;
-			// 	}
-			// } catch {
-			// 	setApiError("Une erreur s'est produite, veuillez réessayer plus tard."); // set the error message
-			// 	return;
-			// }
-			//
-			// try {
-			// 	await saveRequestToDB(inputValue);
-			// } catch {
-			// 	setApiError("Une erreur s'est produite, veuillez réessayer plus tard."); // set the error message
-			// 	return;
-			// }
-			//
-			// if (!apiError) {
-			// 	setSubmittedRequest({ request: inputValue, pdfData });
-			// 	setInputValue('');
-			// 	setPlaceholder('Pose moi ta question...');
-			// 	setShowOutputs(true);
-			// }
 		}
 	};
 
