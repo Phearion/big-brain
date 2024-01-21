@@ -44,15 +44,15 @@ export function Submit({
 			const outputDiv = document.querySelector('.output');
 
 			try {
+				setIsLoading(true);
+				loaderContainer?.classList.add('loader-container-appear');
+				sendBtn?.classList.add('send-btn-disappear');
+				outputDiv?.classList.add('output-appear');
+
 				const checkRequestResult = await checkRequest(inputValue);
 				if (checkRequestResult.success) {
 					let pdfData: Record<string, string>[] = [];
 					try {
-						setIsLoading(true);
-						loaderContainer?.classList.add('loader-container-appear');
-						sendBtn?.classList.add('send-btn-disappear');
-						outputDiv?.classList.add('output-appear');
-
 						const res = await sendToSushiAPI(inputValue);
 						// if res is object containing a files key
 						if (res.files) {
@@ -80,9 +80,7 @@ export function Submit({
 						setShowOutputs(true);
 					}
 				} else if (checkRequestResult.status === 400) {
-					setApiError('Injection SQL détectée !'); // set the error message
-					// eslint-disable-next-line no-alert
-					alert('Injection SQL détectée ! La prochaine fois, je te ban !');
+					setApiError('Injection SQL détectée ! La prochaine fois, je te ban !'); // set the error message
 				} else {
 					setApiError('Woaaa, je lag de fou là. Peut être en maintenance.'); // set the error message
 				}
@@ -97,18 +95,28 @@ export function Submit({
 				return;
 			}
 
-			if (!apiError) {
+			console.log('going to set isSubmitting to false');
+			setIsSubmitting(false);
+			setIsLoading(false);
+			loaderContainer?.classList.add('loader-container-disappear');
+			loaderContainer?.classList.remove('loader-container-appear');
+			sendBtn?.classList.add('send-btn-appear');
+			sendBtn?.classList.remove('send-btn-disappear');
+
+			if (apiError) {
+				// eslint-disable-next-line no-alert
+				alert(apiError);
+				setApiError('');
+				setInputValue('');
+				setPlaceholder('Pose moi ta question...');
+				setShowOutputs(false);
+			} else {
 				// Add the PDF data to the submittedRequest state after it is fetched from the API
 				setSubmittedRequest({ request: inputValue, pdfData });
 				setInputValue('');
 				setPlaceholder('Pose moi ta question...');
 				setShowOutputs(true);
 			}
-
-			setIsSubmitting(false);
-			setIsLoading(false);
-			loaderContainer?.classList.add('loader-container-disappear');
-			sendBtn?.classList.add('send-btn-appear');
 		}
 	};
 
