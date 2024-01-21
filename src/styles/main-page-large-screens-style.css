@@ -41,6 +41,70 @@
 		width: 50%;
 	}
 
+	.hamburger-menu-container {
+		width: 2%;
+		height: 2%;
+		top: 5vw;
+		left: 5vw;
+	}
+
+	.mb-line {
+		width: 100%;
+		height: 0.3vw;
+	}
+
+	.mb-line:nth-child(1) {
+		transform: translateY(0.8vw);
+	}
+
+	.mb-line:nth-child(2) {
+		transform: translateY(1.6vw);
+	}
+
+	.cross-menu {
+		width: 5vw;
+		height: 5vw;
+		top: 5vw;
+		left: 5vw;
+	}
+
+	.cross-menu::before,
+	.cross-menu::after {
+		top: 0;
+		left: 15px;
+		height: 30px;
+		width: 2px;
+	}
+
+	.menu-div {
+		width: 40%;
+		height: 100%;
+		transform: translateX(-50%);
+	}
+
+	.menu-div.show {
+		display: flex;
+		z-index: 99998;
+		animation: slide-in-menu 1s ease-in-out forwards;
+	}
+
+	.menu-div.hide {
+		animation: slide-out-menu 1s ease-in-out forwards;
+	}
+
+	.choice-div-title {
+		font-size: 1.75vw;
+		padding-top: 5vw;
+		padding-bottom: 5vw;
+	}
+
+	.choice-text {
+		font-size: 1.5vw;
+		padding-top: 2vw;
+		padding-bottom: 2vw;
+		padding-left: 2vw;
+	}
+
 	.background-img {
 		top: 50%;
 		left: 50%;
@@ -123,28 +187,36 @@
 		font-size: 1.2vw;
 	}
 
-	.history-btn {
-		height: 3vw;
-		bottom: 14%;
-		left: 92%;
-		font-size: 1vw;
+	.history-container {
+		right: 0;
+		width: 45%;
+		height: 100%;
 	}
 
-	.history-div {
-		height: 70%;
-		width: 30%;
-		bottom: 22%;
-		left: 64%;
+	.history-title {
+		font-size: 2vw;
+		padding-top: 2vw;
+		padding-bottom: 2vw;
 	}
 
 	.history-request {
-		margin-bottom: 0.75vw;
-		font-size: 1.2vw;
+		margin-left: 2vw;
+		font-size: 1.5vw;
 	}
 
-	.separator {
-		margin-top: 1vw;
-		margin-bottom: 1vw;
+	.cross-history {
+		width: 5vw;
+		height: 5vw;
+		top: 2.5vw;
+		left: 5vw;
+	}
+
+	.cross-history::before,
+	.cross-history::after {
+		top: 0;
+		left: 15px;
+		height: 30px;
+		width: 2px;
 	}
 
 	.credits-contributor {
@@ -174,5 +246,26 @@
 
 	.footer-content {
 		font-size: 1vw;
+	}
+}
+
+/* Keyframes */
+@keyframes slide-in-menu {
+	0% {
+		transform: translateX(-175%);
+	}
+
+	100% {
+		transform: translateX(-75%);
+	}
+}
+
+@keyframes slide-out-menu {
+	0% {
+		transform: translateX(-75%);
+	}
+
+	100% {
+		transform: translateX(-175%);
 	}
 }

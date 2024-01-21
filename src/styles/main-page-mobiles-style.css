@@ -12,6 +12,70 @@
 		font-size: 7vw;
 	}
 
+	.hamburger-menu-container {
+		width: 8vw;
+		height: 5vw;
+		top: 5vw;
+		left: 5vw;
+	}
+
+	.mb-line {
+		width: 100%;
+		height: 1vw;
+	}
+
+	.mb-line:nth-child(1) {
+		transform: translateY(3vw);
+	}
+
+	.mb-line:nth-child(2) {
+		transform: translateY(6vw);
+	}
+
+	.cross-menu {
+		width: 5vw;
+		height: 5vw;
+		top: 5vw;
+		left: 5vw;
+	}
+
+	.cross-menu::before,
+	.cross-menu::after {
+		top: 0;
+		left: 15px;
+		height: 30px;
+		width: 2px;
+	}
+
+	.menu-div {
+		width: 100%;
+		height: 100%;
+		left: 75%;
+	}
+
+	.menu-div.show {
+		display: flex;
+		z-index: 99998;
+		animation: slide-in-menu 1s ease-in-out forwards;
+	}
+
+	.menu-div.hide {
+		animation: slide-out-menu 1s ease-in-out forwards;
+	}
+
+	.choice-div-title {
+		font-size: 8vw;
+		padding-top: 8vw;
+		padding-bottom: 8vw;
+	}
+
+	.choice-text {
+		font-size: 4vw;
+		padding-top: 4vw;
+		padding-bottom: 4vw;
+		padding-left: 4vw;
+	}
+
 	.background-img {
 		transform: translateY(30%);
 		width: 50%;
@@ -81,26 +145,35 @@
 		font-size: 4vw;
 	}
 
-	.history-btn {
-		height: 7vw;
-		bottom: 3vw;
-		right: 10.25vw;
+	.history-container {
+		width: 100%;
+		height: 100%;
 	}
 
-	.history-div {
-		height: 90%;
-		width: 90%;
-		bottom: 6.8%;
-		left: 2%;
+	.history-title {
+		font-size: 8vw;
+		padding-top: 8vw;
+		padding-bottom: 8vw;
 	}
 
 	.history-request {
-		margin-bottom: 2vw;
+		margin-left: 6vw;
+		font-size: 5vw;
 	}
 
-	.separator {
-		margin-top: 7vw;
-		margin-bottom: 7vw;
+	.cross-history {
+		width: 4vw;
+		height: 4vw;
+		top: 5vw;
+		left: 5vw;
+	}
+
+	.cross-history::before,
+	.cross-history::after {
+		top: 0;
+		left: 15px;
+		height: 30px;
+		width: 2px;
 	}
 
 	.credits-contributor {
@@ -135,6 +208,26 @@
 
 /* Mobile - Galaxy fold (portrait) */
 @media screen and (width <= 280px) and (orientation: portrait) {
+	.hamburger-menu-container {
+		width: 8vw;
+		height: 5vw;
+		top: 5vw;
+		left: 5vw;
+	}
+
+	.mb-line {
+		width: 100%;
+		height: 1vw;
+	}
+
+	.mb-line:nth-child(1) {
+		transform: translateY(3vw);
+	}
+
+	.mb-line:nth-child(2) {
+		transform: translateY(6vw);
+	}
+
 	.input-text {
 		font-size: 4vw !important;
 	}
@@ -166,6 +259,70 @@
 
 /* Mobile screens (landscape) */
 @media screen and (width <= 1025px) and (height <= 540px) and (orientation: landscape) {
+	.hamburger-menu-container {
+		width: 3vw;
+		height: 3vw;
+		top: 2.5vw;
+		left: 5vw;
+	}
+
+	.mb-line {
+		width: 100%;
+		height: 0.5vw;
+	}
+
+	.mb-line:nth-child(1) {
+		transform: translateY(1.2vw);
+	}
+
+	.mb-line:nth-child(2) {
+		transform: translateY(2.4vw);
+	}
+
+	.cross-menu {
+		width: 2vw;
+		height: 2vw;
+		top: 2.5vw;
+		left: 5vw;
+	}
+
+	.cross-menu::before,
+	.cross-menu::after {
+		top: 0;
+		left: 15px;
+		height: 30px;
+		width: 2px;
+	}
+
+	.menu-div {
+		width: 100%;
+		height: 100%;
+		left: 75%;
+	}
+
+	.menu-div.show {
+		display: flex;
+		z-index: 99998;
+		animation: slide-in-menu 1s ease-in-out forwards;
+	}
+
+	.menu-div.hide {
+		animation: slide-out-menu 1s ease-in-out forwards;
+	}
+
+	.choice-div-title {
+		font-size: 3vw;
+		padding-top: 4vw;
+		padding-bottom: 4vw;
+	}
+
+	.choice-text {
+		font-size: 1.75vw;
+		padding-top: 2vw;
+		padding-bottom: 2vw;
+		padding-left: 2vw;
+	}
+
 	.background-img {
 		transform: translate(0%, 95%);
 	}
@@ -194,11 +351,35 @@
 		border: none;
 	}
 
-	.history-div {
-		height: 67%;
-		width: 90%;
-		bottom: 25%;
-		left: 4%;
+	.history-container {
+		width: 100%;
+		height: 100%;
+	}
+
+	.history-title {
+		font-size: 3vw;
+		padding-top: 4vw;
+		padding-bottom: 4vw;
+	}
+
+	.history-request {
+		margin-left: 3vw;
+		font-size: 2vw;
+	}
+
+	.cross-history {
+		width: 2vw;
+		height: 2vw;
+		top: 2.5vw;
+		left: 5vw;
+	}
+
+	.cross-history::before,
+	.cross-history::after {
+		top: 0;
+		left: 15px;
+		height: 30px;
+		width: 2px;
 	}
 
 	.credits-contributor {
@@ -306,29 +487,28 @@
 		font-size: 2vw;
 	}
 
-	.history-btn {
-		height: 3vw;
-		bottom: 2vw;
-		right: 8.75vw;
-	}
-
-	.history-div {
-		height: 77%;
-		width: 90%;
-		bottom: 14%;
-		left: 2%;
-	}
-
-	.history-request {
-		margin-bottom: 2vw;
-	}
-
-	.separator {
-		margin-top: 7vw;
-		margin-bottom: 7vw;
-	}
-
 	.footer-content {
 		font-size: 1.5vw;
+	}
+}
+
+/* Keyframes */
+@keyframes slide-in-menu {
+	0% {
+		transform: translateX(-100%);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes slide-out-menu {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(-100%);
 	}
 }
