@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Kanit:wght@600&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sometype+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+/* Mobile devices (portrait) */
+@media screen and (width < 720px) and (orientation: portrait) {
+	.bb-title {
+		font-size: 15vw;
+	}
+
+	.slogan {
+		font-size: 7vw;
+	}
+
+	.background-img {
+		transform: translateY(30%);
+		width: 50%;
+	}
+
+	.input-container {
+		bottom: 7%;
+	}
+
+	.form-container {
+		width: 85vw;
+	}
+
+	.form-container input {
+		height: 11vw;
+	}
+
+	.input-text {
+		font-size: 4vw !important;
+	}
+
+	.send-btn {
+		width: 20vw;
+		height: 11vw;
+		margin-left: 10px;
+	}
+
+	.loader-container {
+		border: 6px solid transparent;
+		left: 85.5%;
+	}
+
+	.loader {
+		width: 3.5vh;
+		height: 3.5vh;
+	}
+
+	.tips-container {
+		display: none;
+	}
+
+	.output {
+		display: flex;
+		height: 55%;
+		width: 90%;
+		top: 25%;
+	}
+
+	.student-logo {
+		width: 11vw;
+	}
+
+	.ai-logo {
+		width: 11vw;
+	}
+
+	.bb-answer,
+	.student-question {
+		font-size: 4vw;
+	}
+
+	.pdf-icon-img {
+		width: 11vw;
+	}
+
+	.dl-btn {
+		font-size: 4vw;
+	}
+
+	.history-btn {
+		height: 7vw;
+		bottom: 3vw;
+		right: 10.25vw;
+	}
+
+	.history-div {
+		height: 90%;
+		width: 90%;
+		bottom: 6.8%;
+		left: 2%;
+	}
+
+	.history-request {
+		margin-bottom: 2vw;
+	}
+
+	.separator {
+		margin-top: 7vw;
+		margin-bottom: 7vw;
+	}
+
+	.credits-contributor {
+		padding-bottom: 5vw;
+		margin-left: 15%;
+	}
+
+	.contributor-img {
+		width: 21vw;
+	}
+
+	.sn-icon {
+		width: 6vw;
+	}
+
+	.contributor-name {
+		font-size: 3vw;
+	}
+
+	.contributor-role {
+		font-size: 3vw;
+	}
+
+	.gh-link {
+		font-size: 3vw;
+	}
+
+	.footer-content {
+		font-size: 3.5vw;
+	}
+}
+
+/* Mobile - Galaxy fold (portrait) */
+@media screen and (width <= 280px) and (orientation: portrait) {
+	.input-text {
+		font-size: 4vw !important;
+	}
+
+	.loader-container {
+		border: 6px solid transparent;
+		left: 84.75%;
+	}
+
+	.loader {
+		width: 3vh;
+		height: 3vh;
+	}
+
+	.icon-link {
+		margin-left: 40px;
+	}
+
+	.saved-request {
+		font-size: 80%;
+	}
+
+	.history-btn {
+		font-size: 70%;
+		bottom: 5vw;
+		right: 10vw;
+	}
+}
+
+/* Mobile screens (landscape) */
+@media screen and (width <= 1025px) and (height <= 540px) and (orientation: landscape) {
+	.background-img {
+		transform: translate(0%, 95%);
+	}
+
+	.input-text {
+		font-size: 2vw !important;
+	}
+
+	.loader-container {
+		border: 5px solid transparent;
+		left: 93.5%;
+	}
+
+	.loader {
+		width: 3vw;
+		height: 3vw;
+	}
+
+	.tips-container {
+		display: none;
+	}
+
+	.output {
+		display: flex;
+		background-color: transparent;
+		border: none;
+	}
+
+	.history-div {
+		height: 67%;
+		width: 90%;
+		bottom: 25%;
+		left: 4%;
+	}
+
+	.credits-contributor {
+		padding-bottom: 2vw;
+		margin-left: 70%;
+	}
+
+	.credits-title {
+		font-size: 3vw;
+	}
+
+	.contributor-img {
+		width: 8vw;
+	}
+
+	.sn-icon {
+		width: 2vw;
+	}
+
+	.contributor-name {
+		font-size: 1vw;
+	}
+
+	.contributor-role {
+		font-size: 1vw;
+	}
+
+	.gh-link {
+		font-size: 1vw;
+	}
+}
+
+/* Mobile small screens + Galaxy Fold (landscape) */
+@media screen and (width <= 719px) and (orientation: landscape) {
+	.bb-title {
+		font-size: 5vw;
+	}
+
+	.slogan {
+		font-size: 3.5vw;
+	}
+
+	.background-img {
+		bottom: 90%;
+		width: 20%;
+	}
+
+	.input-container {
+		bottom: 14%;
+	}
+
+	.form-container {
+		width: 85vw;
+	}
+
+	.form-container input {
+		height: 4vw;
+	}
+
+	.send-btn {
+		width: 8vw;
+		height: 5vw;
+		margin-left: 10px;
+	}
+
+	.loader-container {
+		border: 5px solid transparent;
+		left: 93.5%;
+	}
+
+	.loader {
+		width: 3vw;
+		height: 3vw;
+	}
+
+	.tips-container {
+		display: none;
+	}
+
+	.output {
+		display: flex;
+		height: 35%;
+		width: 85%;
+		top: 25%;
+	}
+
+	.student-logo {
+		width: 4.5vw;
+	}
+
+	.ai-logo {
+		width: 4.5vw;
+	}
+
+	.bb-answer,
+	.student-question {
+		font-size: 2vw;
+	}
+
+	.pdf-icon-img {
+		width: 4.5vw;
+	}
+
+	.dl-btn {
+		font-size: 2vw;
+	}
+
+	.history-btn {
+		height: 3vw;
+		bottom: 2vw;
+		right: 8.75vw;
+	}
+
+	.history-div {
+		height: 77%;
+		width: 90%;
+		bottom: 14%;
+		left: 2%;
+	}
+
+	.history-request {
+		margin-bottom: 2vw;
+	}
+
+	.separator {
+		margin-top: 7vw;
+		margin-bottom: 7vw;
+	}
+
+	.footer-content {
+		font-size: 1.5vw;
+	}
+}
