@@ -91,6 +91,8 @@
 	flex-direction: column;
 	background: #000;
 	overflow: hidden auto;
+	height: 110%;
+	top: 0;
 }
 
 .choice-div {
@@ -319,6 +321,8 @@
 	z-index: 9999;
 	transform: translateX(100%);
 	overflow: hidden auto;
+	height: 110%;
+	top: 0;
 }
 
 .history-container.show {
