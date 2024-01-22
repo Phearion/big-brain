@@ -4,7 +4,17 @@ import { Outputs } from './Output.tsx';
 import { Submit } from './Submit.tsx';
 import { Tips } from './Tips.tsx';
 
-export const Body = ({ isLoading, setIsLoading }: { isLoading: any; setIsLoading: any }) => {
+export const Body = ({
+	isLoading,
+	setIsLoading,
+	historyVisible,
+	setHistoryVisible,
+}: {
+	historyVisible: boolean;
+	isLoading: any;
+	setHistoryVisible: any;
+	setIsLoading: any;
+}) => {
 	// states
 	const [showOutputs, setShowOutputs] = useState<boolean>(false);
 	const [inputValue, setInputValue] = useState<string>('');
@@ -26,11 +36,19 @@ export const Body = ({ isLoading, setIsLoading }: { isLoading: any; setIsLoading
 				setSubmittedRequest={handleSubmit} // pass the new function
 				setIsLoading={setIsLoading}
 			/>
+
 			{showOutputs && (
 				<Outputs submittedRequest={submittedRequest} pdfData={pdfData} isLoading={isLoading} />
 			)}
+
+			<History
+				submittedRequest={submittedRequest}
+				historyVisible={historyVisible}
+				setHistoryVisible={setHistoryVisible}
+				pdfData={pdfData}
+			/>
+
 			<Tips />
-			<History submittedRequest={submittedRequest} />
 		</div>
 	);
 };

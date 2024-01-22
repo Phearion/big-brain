@@ -1,80 +1,116 @@
-import { useEffect } from 'react';
-import webPathsList from '../ts/resourcesList.ts';
+import { useEffect, useState } from 'react';
 
-const windowOpen = (path: string) => {
-	window.open(path, '_blank');
+const createPDFLink = (pdf: Record<string, string>) => {
+	const img = document.createElement('img');
+	const div = document.createElement('div');
+	const link = document.createElement('button');
+
+	console.log('pdf', pdf.name);
+
+	img.src = '././img/pdf-extension.png';
+	img.alt = 'pdf-logo';
+	img.className = 'pdf-icon-img';
+
+	div.className = 'icon-link-content';
+
+	link.className = 'dl-btn';
+	link.textContent = pdf.name as string;
+	link.onclick = () => {
+		// Decode base64 data, create Uint8Array, and then create blob
+		const binaryString = atob(pdf.data as string);
+		const len = binaryString.length;
+		const bytes = new Uint8Array(len);
+		for (let ind = 0; ind < len; ind++) {
+			bytes[ind] = binaryString.codePointAt(ind) as number;
+		}
+
+		const blob = new Blob([bytes.buffer], { type: 'application/pdf' });
+
+		const link = document.createElement('a');
+		link.href = window.URL.createObjectURL(blob);
+		link.download = pdf.name as string;
+		link.click();
+	};
+
+	div.appendChild(img);
+	div.appendChild(link);
+	return div;
 };
 
-export const History = ({ submittedRequest }: { submittedRequest: string }) => {
-	const history_div = document.querySelector('.history-div');
+const displayPDFs = (pdfData: Record<string, string>[]) => {
+	console.log('displayPDFs', pdfData);
+	const container = document.querySelector('.bb-sent-files-container');
+	const loaderContainer = document.querySelector('.loader-container');
+	const sendBtn = document.querySelector('.send-btn');
+	const savedRequest = document.querySelector('.saved-request');
+	const separator_ = document.createElement('div');
+	separator_.className = 'separator';
+	if (container) {
+		loaderContainer?.classList.remove('loader-container-appear');
+		sendBtn?.classList.remove('send-btn-disappear');
+		container.textContent = '';
 
-	const addDlLink = (paths: any) => {
-		const saved_request = document.querySelector('.saved-request');
-		const history_request = document.createElement('div');
-		const separator_ = document.createElement('div');
-
-		history_request.className = 'history-request';
-		history_request.textContent = submittedRequest as string;
-
-		saved_request?.appendChild(history_request);
-
-		separator_.className = 'separator';
-
-		for (const path of paths) {
-			if (submittedRequest) {
-				const img = document.createElement('img');
-				const div = document.createElement('div');
-				const link = document.createElement('button');
-
-				img.src = '././img/pdf-extension.png';
-				img.alt = 'pdf-icon';
-				img.className = 'pdf-icon-img';
-
-				div.className = 'icon-link-content';
-
-				link.className = 'dl-btn';
-				link.textContent = path.split('/').pop() as string;
-				link.onclick = () => windowOpen(path);
-
-				div?.appendChild(img);
-				div?.appendChild(link);
-				saved_request?.appendChild(div);
-				saved_request?.appendChild(separator_);
+		for (const pdf of pdfData) {
+			if (!pdf.data) {
+				continue;
 			}
+
+			const div = createPDFLink(pdf);
+			container.appendChild(div);
+			savedRequest?.appendChild(div);
+			savedRequest?.appendChild(separator_);
+		}
+	}
+};
+
+export const History = ({
+	historyVisible,
+	setHistoryVisible,
+	submittedRequest,
+	pdfData,
+}: {
+	historyVisible: boolean;
+	pdfData: Record<string, string>[];
+	setHistoryVisible: any;
+	submittedRequest: string;
+}) => {
+	const [displayedRequests, setDisplayedRequests] = useState<string[]>([]);
+
+	const hideHistory = () => {
+		const historyContainer = document.querySelector('.history-container');
+		historyContainer?.classList.add('hide');
+		// eslint-disable-next-line no-restricted-globals
+		setTimeout(() => setHistoryVisible(false), 1_000);
+	};
+
+	const displaySubmittedRequest = (request: string) => {
+		const savedRequest = document.querySelector('.saved-request');
+		if (savedRequest && !displayedRequests.includes(request)) {
+			const historyRequest = document.createElement('div');
+			historyRequest.textContent = request;
+			historyRequest.className = 'history-request';
+			savedRequest.appendChild(historyRequest);
+
+			setDisplayedRequests((prevRequests) => [...prevRequests, request]);
 		}
 	};
 
 	useEffect(() => {
-		addDlLink(webPathsList);
-	}, [submittedRequest]); // Dependency array includes submittedRequest so the effect runs whenever submittedRequest changes
-
-	const history_appear = () => {
-		const history_request = document.querySelector('.saved-request');
-
-		if (history_request?.textContent === '') {
-			// eslint-disable-next-line no-alert
-			alert("L'historique est vide !");
-			return;
+		if (submittedRequest && !displayedRequests.includes(submittedRequest)) {
+			displaySubmittedRequest(submittedRequest);
 		}
 
-		if (history_div?.classList.contains('history-div-appear')) {
-			history_div?.classList.remove('history-div-appear');
-			history_div?.classList.add('history-div-disappear');
-		} else {
-			history_div?.classList.remove('history-div-disappear');
-			history_div?.classList.add('history-div-appear');
+		if (pdfData.length > 0) {
+			displayPDFs(pdfData);
 		}
-	};
+	}, [pdfData]); // Dependency array includes pdfData so effect runs whenever pdfData changes
 
 	// render
 	return (
-		<div className="history-container">
-			<button onClick={history_appear} className="history-btn">
-				<img src={'././img/clock.png'} alt="clock" className="clock-img"></img>
-			</button>
-			<div className="history-div">
-				<div className="saved-request"></div>
-			</div>
+		<div className={`history-container ${historyVisible ? 'show' : ''}`}>
+			<div className="history-title">Historique</div>
+			<div className="saved-request"></div>
+			<div className="cross-history" onClick={hideHistory}></div>
 		</div>
 	);
 };
