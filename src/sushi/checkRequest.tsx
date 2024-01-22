@@ -4,7 +4,7 @@ export const checkRequest = async (request: string) => {
 		const response = await fetch(
 			`http://${import.meta.env.VITE_APP_PROD_SERVER_IP}:${
 				import.meta.env.VITE_APP_API_PORT
-			}/checkSQLInjection`,
+			}/checkRequest`,
 			{
 				method: 'POST',
 				headers: {
