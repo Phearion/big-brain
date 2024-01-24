@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { checkRequest } from '../sushi/checkSushiRequest.tsx';
 import { saveRequestToDB } from '../sushi/saveRequest.tsx';
 import { sendToSushiAPI } from '../sushi/sushi.tsx';
 
@@ -37,7 +38,7 @@ export function Submit({
 			// Set the submittedRequest state with only the user's question immediately after the form is submitted
 			setSubmittedRequest({ request: inputValue, pdfData: [] });
 
-			let pdfData: Record<string, string>[] = [];
+			const pdfData: Record<string, string>[] = [];
 			const loaderContainer = document.querySelector('.loader-container');
 			const sendBtn = document.querySelector('.send-btn');
 			const outputDiv = document.querySelector('.output');
@@ -48,17 +49,43 @@ export function Submit({
 				sendBtn?.classList.add('send-btn-disappear');
 				outputDiv?.classList.add('output-appear');
 
-				const res = await sendToSushiAPI(inputValue);
-				// if res is object containing a files key
-				if (res.files) {
-					pdfData = res.files;
+				const checkRequestResult = await checkRequest(inputValue);
+				if (checkRequestResult.success) {
+					let pdfData: Record<string, string>[] = [];
+					try {
+						const res = await sendToSushiAPI(inputValue);
+						// if res is object containing a files key
+						if (res.files) {
+							pdfData = res.files;
+						} else {
+							setApiError('Woaaa, je lag de fou là. Peut être en maintenance.'); // set the error message
+							return;
+						}
+					} catch {
+						setApiError("Une erreur s'est produite, veuillez réessayer plus tard."); // set the error message
+						return;
+					}
+
+					try {
+						await saveRequestToDB(inputValue);
+					} catch {
+						setApiError("Une erreur s'est produite, veuillez réessayer plus tard."); // set the error message
+						return;
+					}
+
+					if (!apiError) {
+						setSubmittedRequest({ request: inputValue, pdfData });
+						setInputValue('');
+						setPlaceholder('Pose moi ta question...');
+						setShowOutputs(true);
+					}
+				} else if (checkRequestResult.status === 400) {
+					setApiError('Injection SQL détectée ! La prochaine fois, je te ban !'); // set the error message
 				} else {
 					setApiError('Woaaa, je lag de fou là. Peut être en maintenance.'); // set the error message
-					return;
 				}
 			} catch {
 				setApiError("Une erreur s'est produite, veuillez réessayer plus tard."); // set the error message
-				return;
 			}
 
 			try {
@@ -68,18 +95,28 @@ export function Submit({
 				return;
 			}
 
-			if (!apiError) {
+			console.log('going to set isSubmitting to false');
+			setIsSubmitting(false);
+			setIsLoading(false);
+			loaderContainer?.classList.add('loader-container-disappear');
+			loaderContainer?.classList.remove('loader-container-appear');
+			sendBtn?.classList.add('send-btn-appear');
+			sendBtn?.classList.remove('send-btn-disappear');
+
+			if (apiError) {
+				// eslint-disable-next-line no-alert
+				alert(apiError);
+				setApiError('');
+				setInputValue('');
+				setPlaceholder('Pose moi ta question...');
+				setShowOutputs(false);
+			} else {
 				// Add the PDF data to the submittedRequest state after it is fetched from the API
 				setSubmittedRequest({ request: inputValue, pdfData });
 				setInputValue('');
 				setPlaceholder('Pose moi ta question...');
 				setShowOutputs(true);
 			}
-
-			setIsSubmitting(false);
-			setIsLoading(false);
-			loaderContainer?.classList.add('loader-container-disappear');
-			sendBtn?.classList.add('send-btn-appear');
 		}
 	};
 
