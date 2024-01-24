@@ -44,7 +44,7 @@ export const Header = ({
 
 			<img
 				className="background-img"
-				src={'././img/brain.png'}
+				src={'././img/bigbrain-logo.png'}
 				alt="brain-image-in-background"
 			></img>
 		</div>
