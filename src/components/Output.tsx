@@ -83,7 +83,7 @@ export const Outputs = ({
 			{pdfData.length === 0 && isLoading && (
 				<>
 					<div className="bb-answer-container">
-						<img src={'././img/brain.png'} alt="brain-logo" className="ai-logo"></img>
+						<img src={'././img/bigbrain-logo.png'} alt="brain-logo" className="ai-logo"></img>
 						<p className="bb-answer">
 							Je suis actuellement en train de traiter ta demande. Sois patient ! ;)
 						</p>
@@ -95,7 +95,7 @@ export const Outputs = ({
 			{pdfData.length === 0 && !isLoading && (
 				<>
 					<div className="bb-answer-container">
-						<img src={'././img/brain.png'} alt="brain-logo" className="ai-logo"></img>
+						<img src={'././img/bigbrain-logo.png'} alt="brain-logo" className="ai-logo"></img>
 						<p className="bb-answer">
 							Désolé, je n'ai rien trouvé en lien avec ce que tu as demandé. :(
 						</p>
@@ -107,7 +107,7 @@ export const Outputs = ({
 			{pdfData.length > 0 && (
 				<>
 					<div className="bb-answer-container">
-						<img src={'././img/brain.png'} alt="brain-logo" className="ai-logo"></img>
+						<img src={'././img/bigbrain-logo.png'} alt="brain-logo" className="ai-logo"></img>
 						<p className="bb-answer">
 							Voici ce que j'ai trouvé en lien avec ce que tu as demandé :
 						</p>
